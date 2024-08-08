@@ -1,4 +1,5 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, OnInit, Output, Input } from '@angular/core';
+import * as EventEmitter from 'events';
 import { BucketModel } from '../models/bucket-model';
 import { BucketinhomeModel } from '../models/bucketinhome-model';
 import { DialogService } from '../shared/dialog.service';
@@ -10,10 +11,10 @@ import { DialogService } from '../shared/dialog.service';
 })
 
 export class BucketComponent implements OnInit {
-  
+
   @Output('onDeleteBucket') onDeleteBucket : EventEmitter<BucketinhomeModel> = new EventEmitter();
-  @Input('bucket') bucket: BucketinhomeModel = {} as BucketinhomeModel; 
-  
+  @Input('bucket') bucket: BucketinhomeModel = {} as BucketinhomeModel;
+
   constructor(private dialogService: DialogService) { }
 
   ngOnInit() {
