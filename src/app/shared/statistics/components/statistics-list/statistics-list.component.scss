@@ -1,0 +1,24 @@
+.container {
+  background-color: #f4d9d9;
+  position: relative;
+  border-radius: 40px;
+  bottom: 0px;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  flex-direction: column;
+  font-size: 30px;
+  font-weight: 500;
+  padding: 40px;
+}
+
+h1{
+  font-size: 25px; 
+  font-weight: 500;  
+  color: rgb(73, 72, 72);
+}
+
+.statistic-list {
+  display: flex;
+  gap: 20px;
+}

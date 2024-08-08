@@ -1,0 +1,30 @@
+.container {
+  padding: 10px;
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+}
+
+.round {
+  width: 20px;
+  height: 20px;
+  background-color: yellow;
+  border-radius: 20px;
+  font-size: 20px;
+}
+
+.statistic-name {
+  font-size: 25px; 
+  font-weight: 500;  
+  color: rgb(73, 72, 72);
+}
+
+.statistic-amount {
+  font-size: 25px; 
+  font-weight: 500;  
+  color: rgb(73, 72, 72);
+}
+  

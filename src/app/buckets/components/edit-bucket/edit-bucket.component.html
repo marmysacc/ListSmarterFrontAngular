@@ -1,0 +1,67 @@
+<section class="container">
+  <h1 class="header">
+    Edit Bucket
+    <mat-icon id="close-icon" (click)="closeDialog()">close</mat-icon>
+  </h1>
+  <form class="form" [formGroup]="profileForm">
+    <mat-form-field class="form-field" appearance="fill">
+      <mat-label class="labels" for="name">Name: </mat-label>
+      <input matInput id="name" type="text" formControlName="name" required />
+    </mat-form-field>
+
+    <mat-form-field class="form-field" appearance="fill">
+      <mat-label class="labels" for="description">Description: </mat-label>
+      <textarea
+        matInput
+        id="description"
+        type="text"
+        formControlName="description"
+      ></textarea>
+    </mat-form-field>
+
+    <mat-form-field class="form-field" appearance="fill">
+      <mat-label class="labels" for="color">Color: </mat-label>
+      <input matInput id="color" type="color" formControlName="color" />
+    </mat-form-field>
+
+    <mat-form-field class="form-field" appearance="fill">
+      <mat-label class="labels" for="maxTasks"
+        >Maximum number of tasks (0-40):
+      </mat-label>
+      <input
+        matInput
+        id="maxNumberofTasks"
+        type="text"
+        formControlName="maxNumberOfTasks"
+      />
+    </mat-form-field>
+
+    <p class="info">Complete the form to enable button.</p>
+    <div class="buttons">
+      <button
+        mat-raised-button
+        color="warn"
+        class="button"
+        type="cancel"
+        (click)="closeDialog()"
+      >
+        Cancel
+      </button>
+      <button
+        mat-raised-button
+        color="primary"
+        class="button"
+        type="submit"
+        [disabled]="!profileForm.valid"
+        [mat-dialog-close]="profileForm.value"
+      >
+        Save
+      </button>
+    </div>
+  </form>
+
+  <p>Form Value: {{ profileForm.value | json }}</p>
+
+  <p>Form Status: {{ profileForm.status }}</p>
+</section>
+<!-- <button type="button" (click)="updateProfile()">Update Profile</button> -->

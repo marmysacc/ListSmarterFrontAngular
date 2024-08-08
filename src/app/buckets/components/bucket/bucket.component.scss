@@ -1,0 +1,52 @@
+.container {
+    min-width: 290px;
+    height: 200px;
+    background: green;
+    border-radius: 20px;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 15px 40px;
+    justify-content: center;
+    align-items: center;
+    border-width: thick;
+    border-color: rgb(70, 47, 47);
+    border-style: solid;
+}
+
+.name {
+    color: aliceblue;
+    font-size: 38px;
+    font-family: Verdana;
+    font-weight: 600;
+    text-shadow: 6px 6px 6px #0e0f0e;
+}
+
+button {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin: 10px;
+    padding: 10px;
+}
+
+.trash {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+}
+
+h3 {
+    position: absolute;
+    margin-top: 120px;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.name:hover {
+    cursor: pointer;
+    background-color: rgb(94, 16, 183);
+    transition: all 0.3s ease;
+}

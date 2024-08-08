@@ -1,0 +1,42 @@
+.container {
+  max-width: 1920px;
+  height: 1080px;
+  background-color: #f4d9d9;
+  border-radius: 40px;  
+  display: grid;
+  align-items: flex-end;
+  opacity: 0.9;
+}
+
+h1{
+  display: flex;
+}
+
+.deletebutton{
+  margin-left: 5%;
+  height: 60px;
+  width: 120px;
+  margin-top: 70px;
+  font-size: 20px;
+  border-color: rgb(30, 30, 43);
+  border-width: 6px;
+  border-radius: 10px;
+  margin-bottom: 50px;
+}
+
+.editbutton{
+  margin-left: 40%;
+  height: 60px;
+  width: 120px;
+  margin-top: 70px;
+  font-size: 20px;
+  border-color: rgb(30, 30, 43);
+  border-width: 6px;
+  border-radius: 10px;
+  margin-bottom: 50px;
+}
+
+h3 {
+  padding-left: 40px;
+  font-size: 20px;
+}
