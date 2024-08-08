@@ -109,5 +109,8 @@
       }
     }
   },
-  "defaultProject": "ListSmarter"
+  "defaultProject": "ListSmarter",
+  "cli": {
+    "analytics": false
+  }
 }
