@@ -15,7 +15,6 @@ import { AddBucketModel } from '../../models/addbucket-model';
 })
 export class BucketListComponent implements OnInit {
   bucketbrowser = 'Browse your buckets:';
-  private url: string = environment.baseUrlApi;
   buckets: BucketinhomeModel[] = [];
   maxbuckets = 10;
   constructor(
@@ -47,17 +46,17 @@ export class BucketListComponent implements OnInit {
     return false;
   }
 
-  onAddBucket() {    
+  onAddBucket() {
     const dialogOpen = this.dialog.open(AddBucketComponent,
-      {        
+      {
           width: '660px'
       });
     dialogOpen.afterClosed().subscribe((result: AddBucketModel) => {
-      console.log('afterClosed', result);      
+      console.log('afterClosed', result);
       if(result){
         console.log("dsd", result);
-        this.bucketservice.addBucket(result).subscribe(()=>this.getBuckets());        
-      }    
-    })    
+        this.bucketservice.addBucket(result).subscribe(()=>this.getBuckets());
+      }
+    })
   }
 }

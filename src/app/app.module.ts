@@ -26,6 +26,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { EditBucketComponent } from './buckets/components/edit-bucket/edit-bucket.component';
 import { HeaderComponent } from './shared/header/header.component';
+import { BucketListHeaderComponent } from './buckets/components/bucket-list/bucket-list-header/bucket-list-header.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { HeaderComponent } from './shared/header/header.component';
     TasksStateComponent,
     AddBucketComponent,
     EditBucketComponent,
-    HeaderComponent
+    HeaderComponent,
+    BucketListHeaderComponent
    ],
   imports: [
     BrowserModule,

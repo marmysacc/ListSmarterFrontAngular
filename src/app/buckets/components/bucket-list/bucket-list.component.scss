@@ -13,22 +13,16 @@
 .above {
   margin-left: 40px;
   display: flex;
-  gap: 700px;  
+  gap: 700px;
 }
 
 h1{
-  font-size: 25px; 
-  font-weight: 500;  
+  font-size: 25px;
+  font-weight: 500;
   color: rgb(73, 72, 72);
 }
 
-button {
-  font-size: 20px;
-  width: 250px;
-  height: 60px;
-  border-radius: 10px;  
-  ;
-}
+
 
 ::ng-deep .mat-tooltip {
   width: 400px;
