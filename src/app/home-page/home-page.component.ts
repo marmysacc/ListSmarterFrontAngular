@@ -9,7 +9,7 @@ import { TaskStateModel } from '../shared/statistics/models/task-state-model';
   styleUrls: ['./home-page.component.scss'],
 })
 export class HomeComponent implements OnInit {
-  welcome = 'Welcome in ListSmarter';
+  header = 'Welcome in ListSmarter';
   constructor(private statisticsservice: StatisticsService) {}
 
   statistics: Observable<TaskStateModel[]> | undefined;

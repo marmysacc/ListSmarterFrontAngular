@@ -25,9 +25,10 @@ import { BucketService } from './core/services/bucket.service';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { EditBucketComponent } from './buckets/components/edit-bucket/edit-bucket.component';
+import { HeaderComponent } from './shared/header/header.component';
 
 @NgModule({
-  declarations: [		
+  declarations: [
     AppComponent,
     BucketListComponent,
     BucketComponent,
@@ -40,7 +41,8 @@ import { EditBucketComponent } from './buckets/components/edit-bucket/edit-bucke
     TaskListComponent,
     TasksStateComponent,
     AddBucketComponent,
-    EditBucketComponent
+    EditBucketComponent,
+    HeaderComponent
    ],
   imports: [
     BrowserModule,
@@ -51,8 +53,8 @@ import { EditBucketComponent } from './buckets/components/edit-bucket/edit-bucke
     HttpClientModule,
     MatTooltipModule,
     MatDialogModule,
-    ReactiveFormsModule,  
-    FormsModule, 
+    ReactiveFormsModule,
+    FormsModule,
     MatInputModule,
     MatFormFieldModule
   ],

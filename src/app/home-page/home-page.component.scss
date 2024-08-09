@@ -1,26 +1,11 @@
 .container {
   max-width: 1920px;
   height: 1080px;
-  background-color: #f4d9d9;
+  //background-color: #f4d9d9;
   border-radius: 40px;
   display: grid;
   align-items: flex-end;
   opacity: 0.9;
-}
-
-h1 {
-  padding-left: 40px;
-  font-size: 60px;
-  padding-top: 90px;
-  padding-bottom: 40px;
-  font-weight: 500;  
-  color: rgb(73, 72, 72);
-  text-shadow: 2px 2px 2px #565657;
-}
-
-h3 {
-  padding-left: 40px;
-  font-size: 20px;
 }
 
 button {
