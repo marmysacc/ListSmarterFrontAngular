@@ -10,6 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { DeletebucketComponent } from './shared/delete-dialogs/components/delete-dialog/delete-dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatCardModule } from '@angular/material/card';
 import { SinglebucketComponent } from './single-bucket-page/single-bucket-page.component';
 import { StatisticsService } from './core/services/statistics.service';
 import { BucketListComponent } from './buckets/components/bucket-list/bucket-list.component';
@@ -58,7 +59,8 @@ import { BucketListHeaderComponent } from './buckets/components/bucket-list/buck
     ReactiveFormsModule,
     FormsModule,
     MatInputModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatCardModule
   ],
   providers: [StatisticsService, BucketService],
   bootstrap: [AppComponent],
