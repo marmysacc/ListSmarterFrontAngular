@@ -7,6 +7,7 @@ import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { BucketComponent } from '../bucket/bucket.component';
 import { AddBucketComponent } from '../add-bucket/add-bucket.component';
 import { AddBucketModel } from '../../models/addbucket-model';
+import { BucketModel } from '../../models/bucket-model';
 
 @Component({
   selector: 'app-bucket-list',
@@ -15,7 +16,7 @@ import { AddBucketModel } from '../../models/addbucket-model';
 })
 export class BucketListComponent implements OnInit {
   bucketbrowser = 'Browse your buckets:';
-  buckets: BucketinhomeModel[] = [];
+  buckets: BucketModel[] = [];
   maxbuckets = 10;
   constructor(
     private http: HttpClient,
@@ -33,7 +34,7 @@ export class BucketListComponent implements OnInit {
     });
   }
 
-  deleteBucket(bucket: BucketinhomeModel) {
+  deleteBucket(bucket: BucketModel) {
     this.bucketservice
       .deleteBucket(bucket)
       .subscribe(

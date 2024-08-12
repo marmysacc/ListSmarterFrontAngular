@@ -1,7 +1,6 @@
 .container {
     min-width: 290px;
     height: 200px;
-    background: green;
     border-radius: 20px;
     position: relative;
     display: flex;
@@ -10,15 +9,18 @@
     justify-content: center;
     align-items: center;
     border-width: thick;
-    border-color: rgb(70, 47, 47);
+    border-color: #000000;
     border-style: solid;
 }
 
 .name {
-    color: aliceblue;
     font-size: 38px;
-    font-family: Verdana;
-    font-weight: 600;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    color: #0dc91d;
+    -webkit-text-stroke: 2px #000000;
+    font-style: italic;
+    font-weight: 900;
     text-shadow: 6px 6px 6px #0e0f0e;
 }
 
@@ -28,6 +30,20 @@ button {
     right: 0;
     margin: 10px;
     padding: 10px;
+    border-style: solid;
+    border-color: #000000;
+}
+
+.mat-mdc-button-base {
+  background-color:#9fa0ff;
+  color: #0dc91d !important;
+  -webkit-text-stroke: 2px #000000 !important;
+  font-size: 25px;
+  font-weight: 800;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-style: italic;
+  text-shadow: 4px 4px 4px #565657;
 }
 
 .trash {
@@ -41,8 +57,14 @@ button {
 h3 {
     position: absolute;
     margin-top: 120px;
-    font-size: 20px;
-    font-weight: 600;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    font-style: italic;
+    color: #0dc91d;
+    -webkit-text-stroke: 2px #000000;
+    font-weight: 900;
+    font-size: 22px;
+    text-shadow: 3px 3px 3px #000000;
 }
 
 .name:hover {

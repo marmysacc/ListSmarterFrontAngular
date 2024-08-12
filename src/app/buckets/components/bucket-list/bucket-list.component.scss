@@ -1,28 +1,13 @@
 .container {
-  height: 650px;
-  background-color: #f4d9d9;
+  margin-top: 40px;
+  //background-color: #f4d9d9;
   position: relative;
-  border-radius: 40px;
   bottom: 0px;
   display: flex;
   flex-wrap: wrap;
   align-content: center;
   opacity: 0.9;
 }
-
-.above {
-  margin-left: 40px;
-  display: flex;
-  gap: 700px;
-}
-
-h1{
-  font-size: 25px;
-  font-weight: 500;
-  color: rgb(73, 72, 72);
-}
-
-
 
 ::ng-deep .mat-tooltip {
   width: 400px;

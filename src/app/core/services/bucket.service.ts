@@ -17,7 +17,7 @@ private url: string = environment.baseUrlApi;
 
 constructor(private http: HttpClient) { }
 
-  getBuckets(): Observable <BucketinhomeModel[]> {
+  getBuckets(): Observable <BucketModel[]> {
       return this.http .get<BucketModel[]>(`${this.url}/Bucket`)
   };
 
@@ -25,7 +25,7 @@ constructor(private http: HttpClient) { }
       return this.http .get<BucketModel>(`${this.url}/Bucket/${bucketId}`)
   };
 
-  deleteBucket(bucket: BucketinhomeModel) {
+  deleteBucket(bucket: BucketModel) {
       return this.http .delete(`${this.url}/Bucket/${bucket.id}`);
   };
 

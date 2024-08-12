@@ -2,21 +2,21 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
-import { DeletebucketComponent } from './deletebucket.component';
+import { DeleteBucketComponent } from './deletebucket.component';
 
 describe('DeletebucketComponent', () => {
-  let component: DeletebucketComponent;
-  let fixture: ComponentFixture<DeletebucketComponent>;
+  let component: DeleteBucketComponent;
+  let fixture: ComponentFixture<DeleteBucketComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DeletebucketComponent ]
+      declarations: [ DeleteBucketComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(DeletebucketComponent);
+    fixture = TestBed.createComponent(DeleteBucketComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

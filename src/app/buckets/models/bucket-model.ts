@@ -5,6 +5,6 @@ export interface BucketModel {
   name: string;
   description?: string;
   color?: string;
-  MaxNumberofTasks?: number;
-  Tasks?: TaskModel[];
+  maxNumberofTasks?: number;
+  tasks?: TaskModel[];
 }

@@ -1,7 +1,7 @@
 <section class="container" [ngStyle]="{ 'background-color': bucket.color }">
   <div class="name" [routerLink]="['bucket', bucket.id]">{{ bucket.name }}</div>
-  <h3>To Do: {{ bucket.sum }}</h3>
-  <button mat-fab class="trash" color="primary" (click)="onDelete()">
+  <h3>To Do: {{ toDo }}</h3>
+  <button mat-fab class="trash"  (click)="onDelete()">
     <mat-icon class="icon">delete</mat-icon>
   </button>
 </section>

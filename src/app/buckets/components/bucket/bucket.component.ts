@@ -1,17 +1,25 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { BucketinhomeModel } from '../../models/bucket-in-home-model';
+import { Component, EventEmitter, Input, Output, OnInit } from '@angular/core';
 import { DialogService } from '../../../core/services/dialog.service';
+import { BucketModel } from '../../models/bucket-model';
 
 @Component({
   selector: 'app-Bucket',
   templateUrl: './bucket.component.html',
   styleUrls: ['./bucket.component.scss'],
 })
-export class BucketComponent {
-  @Output() onDeleteBucket: EventEmitter<BucketinhomeModel> =
+export class BucketComponent implements OnInit {
+  @Output() onDeleteBucket: EventEmitter<BucketModel> =
     new EventEmitter();
-  @Input() bucket: BucketinhomeModel = {} as BucketinhomeModel;
+  @Input() bucket: BucketModel = {} as BucketModel;
+  toDo: number = 0;
   constructor(private dialogService: DialogService) {}
+
+  ngOnInit(){
+    if (this.bucket.tasks) {
+      const tasksWithStateOne = this.bucket.tasks.filter(task => task.state === 1);
+      this.toDo = tasksWithStateOne.length;
+    }
+  }
 
   onDelete() {
     this.dialogService

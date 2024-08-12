@@ -6,10 +6,10 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
   templateUrl: './deletebucket.component.html',
   styleUrls: ['./deletebucket.component.scss']
 })
-export class DeletebucketComponent implements OnInit {
+export class DeleteBucketComponent implements OnInit {
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: any,
-  public dialogRef: MatDialogRef<DeletebucketComponent>) { }
+  public dialogRef: MatDialogRef<DeleteBucketComponent>) { }
 
   ngOnInit() {
   }
