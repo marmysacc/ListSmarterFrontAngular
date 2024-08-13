@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, Output, OnInit } from '@angular/core';
-import { DialogService } from '../../../core/services/dialog.service';
-import { BucketModel } from '../../models/bucket-model';
+import { DialogService } from '../../../../core/services/dialog.service';
+import { BucketModel } from '../../../models/bucket-model';
 
 @Component({
   selector: 'app-Bucket',

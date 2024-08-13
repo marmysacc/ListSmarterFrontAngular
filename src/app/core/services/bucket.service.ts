@@ -3,7 +3,6 @@ import { Injectable } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { AddBucketModel } from 'src/app/buckets/models/addbucket-model';
-import { BucketinhomeModel } from 'src/app/buckets/models/bucket-in-home-model';
 import { BucketModel } from 'src/app/buckets/models/bucket-model';
 import { EditBucketModel } from 'src/app/buckets/models/edit-bucket-model';
 import { environment } from 'src/environments/environment';
@@ -13,7 +12,6 @@ import { environment } from 'src/environments/environment';
 })
 export class BucketService {
 private url: string = environment.baseUrlApi;
-//buckets: BucketinhomeModel[] = [];
 
 constructor(private http: HttpClient) { }
 
