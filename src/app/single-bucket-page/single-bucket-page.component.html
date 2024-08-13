@@ -1,12 +1,19 @@
-<section class="container">
-  <h1><app-bucket-header [bucket]="bucket">
-    
-  </app-bucket-header>    
-       <button class="editbutton" mat-raised-button color="primary" (click)="onEditBucket()"> <mat-icon>edit</mat-icon>Edit</button>
-       <button class="deletebutton" mat-raised-button color="primary" ><mat-icon>delete</mat-icon>Delete</button>  
-  </h1>
+<section class="container" [ngStyle]="{ 'background-color': backgroundColor }">
+  <div class="header">
+    <app-bucket-header [bucket]="bucket"></app-bucket-header>
+  </div>
+
+  <div class="buttons">
+    <button class="editbutton" mat-raised-button color="primary" (click)="onEditBucket()">
+      <mat-icon>edit</mat-icon>Edit
+    </button>
+    <button class="deletebutton" mat-raised-button color="primary">
+      <mat-icon>delete</mat-icon>Delete
+    </button>
+  </div>
+
   <div class="bottom">
-    <app-statistics-list [statistics]="statistics"></app-statistics-list>  
+    <app-statistics-list [statistics]="statistics"></app-statistics-list>
     <app-task-list [taskState]="statistics"></app-task-list>
   </div>
-</section> 
+</section>

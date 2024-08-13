@@ -1,5 +1,5 @@
 import { Component, EventEmitter, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { TaskStateModel } from '../shared/statistics/models/task-state-model';
 import { StatisticsService } from '../core/services/statistics.service';
@@ -21,16 +21,22 @@ export class SinglebucketComponent implements OnInit {
   bucket: Observable<BucketinhomeModel> | undefined;
   onDeleteBucket: EventEmitter<BucketinhomeModel> = new EventEmitter();
   id: Number = {} as Number;
+  backgroundColor: string;
   constructor(
     private statisticsservice: StatisticsService,
     private bucketservice: BucketService,
     private router: ActivatedRoute,
+    private routing: Router,
     private dialogservice: DialogService,
     private dialog: MatDialog
-  ) {}
+  ) {
+    const navigation = this.routing.getCurrentNavigation();
+    this.backgroundColor = navigation?.extras.state?.['backgroundColor'] || 'defaultColor';
+  }
 
   ngOnInit(): void {
     this.readBucket();
+    console.log("color", this.backgroundColor)
   }
 
   readBucket(){
@@ -47,15 +53,15 @@ export class SinglebucketComponent implements OnInit {
   onEditBucket() {
     const dialogOpen = this.dialog.open(EditBucketComponent, {
       width: '660px',
-      data: this.id,      
+      data: this.id,
     });
     dialogOpen.afterClosed().subscribe((result: EditBucketModel) => {
-      console.log('afterClosed', result);      
+      console.log('afterClosed', result);
       if(result){
         console.log("dsd", result);
-        this.bucketservice.editBucket(result).subscribe(()=>this.readBucket());   
-      }   
-    })  
+        this.bucketservice.editBucket(result).subscribe(()=>this.readBucket());
+      }
+    })
   }
 
   // onDelete() {

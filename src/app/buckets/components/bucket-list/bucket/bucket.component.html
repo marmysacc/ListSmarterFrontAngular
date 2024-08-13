@@ -1,5 +1,5 @@
 <section class="bucket-wrapper">
-  <a [routerLink]="['bucket', bucket.id]" href="#" class="bucket-link">
+  <a [routerLink]="['/bucket', bucket.id]" [state]="{ backgroundColor: bucket.color }" href="#" class="bucket-link">
     <section class="container" [ngStyle]="{ 'background-color': bucket.color }">
       <div class="name">{{ bucket.name }}</div>
       <h3>To Do: {{ toDo }}</h3>
