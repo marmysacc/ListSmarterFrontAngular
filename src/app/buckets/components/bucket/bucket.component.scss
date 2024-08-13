@@ -1,3 +1,22 @@
+.bucket-wrapper {
+  margin: 15px 40px;
+  display: inline-block;
+}
+
+.bucket-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+
+  &:hover {
+    cursor: pointer;
+    transform: translateY(-5px) scale(1.08);
+  }
+}
+
 .container {
     min-width: 290px;
     height: 200px;
@@ -5,7 +24,6 @@
     position: relative;
     display: flex;
     flex-wrap: wrap;
-    margin: 15px 40px;
     justify-content: center;
     align-items: center;
     border-width: thick;
@@ -32,6 +50,11 @@ button {
     padding: 10px;
     border-style: solid;
     border-color: #000000;
+
+    &:hover {
+      cursor: pointer;
+      transform: translateY(-10px) scale(1.2);
+    }
 }
 
 .mat-mdc-button-base {
@@ -67,8 +90,3 @@ h3 {
     text-shadow: 3px 3px 3px #000000;
 }
 
-.name:hover {
-    cursor: pointer;
-    background-color: rgb(94, 16, 183);
-    transition: all 0.3s ease;
-}

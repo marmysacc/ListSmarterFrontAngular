@@ -21,7 +21,9 @@ export class BucketComponent implements OnInit {
     }
   }
 
-  onDelete() {
+  onDelete(event: MouseEvent) {
+    event.preventDefault();
+    event.stopPropagation();
     this.dialogService
       .openConfirmDialog(`Are you sure to delete bucket ${this.bucket.name} with all tasks?`)
       .afterClosed()

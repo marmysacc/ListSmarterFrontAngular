@@ -1,7 +1,11 @@
-<section class="container" [ngStyle]="{ 'background-color': bucket.color }">
-  <div class="name" [routerLink]="['bucket', bucket.id]">{{ bucket.name }}</div>
-  <h3>To Do: {{ toDo }}</h3>
-  <button mat-fab class="trash"  (click)="onDelete()">
-    <mat-icon class="icon">delete</mat-icon>
-  </button>
+<section class="bucket-wrapper">
+  <a [routerLink]="['bucket', bucket.id]" href="#" class="bucket-link">
+    <section class="container" [ngStyle]="{ 'background-color': bucket.color }">
+      <div class="name">{{ bucket.name }}</div>
+      <h3>To Do: {{ toDo }}</h3>
+      <button mat-fab class="trash" (click)="onDelete($event)">
+        <mat-icon class="icon">delete</mat-icon>
+      </button>
+    </section>
+  </a>
 </section>

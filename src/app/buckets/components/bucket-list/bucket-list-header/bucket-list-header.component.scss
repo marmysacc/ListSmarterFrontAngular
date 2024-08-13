@@ -28,7 +28,15 @@ button {
   width: 300px;
   height: 60px;
   border-radius: 60px;
+  border-width: medium;
+
+  &:hover {
+    cursor: pointer;
+    transform: translateY(-5px) scale(1.08);
+  }
 }
+
+
 
 .mat-mdc-button-base {
   color: #0dc91d !important;
