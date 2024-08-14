@@ -1,3 +1,15 @@
-<p>
-  task-list-header works!
-</p>
+<section>
+  <div class="above">
+    <h1>{{ tasksbrowser }}</h1>
+    <div
+      class="tooltip"
+      matTooltip="Maximum number of tasks has been reached!"
+      matTooltipPosition="above"
+      matTooltipHideDelay="100"
+    >
+    <button class="add-task" mat-raised-button color="primary" class="tooltip">
+      <mat-icon>  library_add  </mat-icon>   Add new Task
+    </button>
+    </div>
+  </div>
+</section>

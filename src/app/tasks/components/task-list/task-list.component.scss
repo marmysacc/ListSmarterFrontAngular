@@ -1,20 +1,22 @@
 .container {
-    height: 650px;
-    background-color: #f4d9d9;
-    position: relative;
-    border-radius: 40px;
-    bottom: 0px;
-    display: flex;
-    flex-wrap: wrap;
-    align-content: center;
-    opacity: 0.9;
-  }
+  width: 96vw;
+  height: 100%;
+  //background-color: #f4d9d9;
+  position: relative;
+  border-radius: 40px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 równe kolumny */
+  gap: 20px; /* Odstępy między kolumnami */
+  padding-top: 40px;
+  padding-bottom: 40px;
+  //padding: 20px; /* Padding wewnętrzny kontenera */
+  box-sizing: border-box; /* Uwzględnij padding w szerokości kontenera */
+}
 
-  
- button {  
+ button {
   font-size: 20px;
   width: 250px;
-  height: 60px; 
+  height: 60px;
   border-radius: 10px;
   margin-bottom: 50px;
 }

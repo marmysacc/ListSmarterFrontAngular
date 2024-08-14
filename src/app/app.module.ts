@@ -19,7 +19,6 @@ import { StatisticsListComponent } from './shared/statistics/components/statisti
 import { StatisticComponent } from './shared/statistics/components/statistic/statistic.component';
 import { BucketHeaderComponent } from './buckets/components/bucket-header/bucket-header.component';
 import { TaskListComponent } from './tasks/components/task-list/task-list.component';
-import { TasksStateComponent } from './tasks/components/tasks-state/tasks-state.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AddBucketComponent } from './buckets/components/add-bucket/add-bucket.component';
 import { BucketService } from './core/services/bucket.service';
@@ -28,6 +27,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { EditBucketComponent } from './buckets/components/edit-bucket/edit-bucket.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { BucketListHeaderComponent } from './buckets/components/bucket-list/bucket-list-header/bucket-list-header.component';
+import { TasksStateContainerComponent } from './tasks/components/task-list/tasks-state-container/tasks-state-container.component';
+import { TaskListHeaderComponent } from './tasks/components/task-list/task-list-header/task-list-header.component';
 
 @NgModule({
   declarations: [
@@ -41,11 +42,12 @@ import { BucketListHeaderComponent } from './buckets/components/bucket-list/buck
     SinglebucketComponent,
     BucketHeaderComponent,
     TaskListComponent,
-    TasksStateComponent,
+    TasksStateContainerComponent,
     AddBucketComponent,
     EditBucketComponent,
     HeaderComponent,
-    BucketListHeaderComponent
+    BucketListHeaderComponent,
+    TaskListHeaderComponent
    ],
   imports: [
     BrowserModule,
