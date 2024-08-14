@@ -1,5 +1,4 @@
-<section *ngIf="bucket | async as bucket">
-  <!-- <h1>Bucket</h1> -->
-  <h1>{{ bucket.name }}</h1>
-  <h3>{{ bucket.description }}</h3>
+<section *ngIf="bucketModel">
+  <h1>{{ bucketModel.name }}</h1>
+  <h3>{{ bucketModel.description }}</h3>
 </section>
