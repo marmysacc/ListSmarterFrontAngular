@@ -33,7 +33,6 @@ export class SinglebucketComponent implements OnInit {
     private dialogService: DialogService,
     private dialog: MatDialog
   ) {
-    const navigation = this.routing.getCurrentNavigation();
   }
 
   ngOnInit(): void {
@@ -54,7 +53,7 @@ export class SinglebucketComponent implements OnInit {
   onEditBucket() {
     const dialogOpen = this.dialog.open(EditBucketComponent, {
       width: '660px',
-      data: this.id,
+      data: this.bucketModel,
     });
     dialogOpen.afterClosed().subscribe((result: EditBucketModel) => {
       if(result){

@@ -1,4 +1,4 @@
-import { Component, Inject, Input } from '@angular/core';
+import { Component, Inject, Input, OnInit } from '@angular/core';
 import {
   FormBuilder,
   FormGroup,
@@ -9,14 +9,16 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Observable } from 'rxjs';
 import { BucketinhomeModel } from '../../models/bucket-in-home-model';
+import { BucketModel } from '../../models/bucket-model';
 
 @Component({
   selector: 'app-edit-bucket',
   templateUrl: './edit-bucket.component.html',
   styleUrls: ['./edit-bucket.component.scss'],
 })
-export class EditBucketComponent {
-  @Input() bucket: Observable<BucketinhomeModel> | undefined;
+export class EditBucketComponent implements OnInit {
+  //@Input() bucket: Observable<BucketinhomeModel> | undefined;
+  //@Input() bucketModel: BucketModel | undefined;
   profileForm: FormGroup;
 
   constructor(
@@ -26,14 +28,19 @@ export class EditBucketComponent {
     private route: ActivatedRoute
   ) {
     this.profileForm = this.fb.group({
-      id: [this.data],
-      name: ['', Validators.required],
-      description: [''],
-      color: ['#964b00', Validators.required],
-      maxNumberOfTasks: ['15', Validators.required],
+      id: [this.data.id],
+      name: [this.data.name, Validators.required],
+      description: [this.data.description],
+      color: [this.data.color, Validators.required],
+      maxNumberOfTasks: [this.data.maxNumberOfTasks, Validators.required],
     });
     //console.log('closeDialog',this.data);
     //this.profileForm.patchValue()
+  }
+
+  ngOnInit(): void {
+    console.log("data",  this.data);
+    //console.log("bucket", this.bucketModel);
   }
 
   closeDialog() {

@@ -1,10 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { BucketService } from 'src/app/core/services/bucket.service';
-import { environment } from 'src/environments/environment';
-import { BucketinhomeModel } from '../../models/bucket-in-home-model';
-import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
-import { BucketComponent } from '../bucket/bucket.component';
+import { MatDialog} from '@angular/material/dialog';
 import { AddBucketComponent } from '../add-bucket/add-bucket.component';
 import { AddBucketModel } from '../../models/addbucket-model';
 import { BucketModel } from '../../models/bucket-model';
@@ -53,9 +50,7 @@ export class BucketListComponent implements OnInit {
           width: '660px'
       });
     dialogOpen.afterClosed().subscribe((result: AddBucketModel) => {
-      console.log('afterClosed', result);
       if(result){
-        console.log("dsd", result);
         this.bucketservice.addBucket(result).subscribe(()=>this.getBuckets());
       }
     })
