@@ -29,6 +29,8 @@ import { HeaderComponent } from './shared/header/header.component';
 import { BucketListHeaderComponent } from './buckets/components/bucket-list/bucket-list-header/bucket-list-header.component';
 import { TasksStateContainerComponent } from './tasks/components/task-list/tasks-state-container/tasks-state-container.component';
 import { TaskListHeaderComponent } from './tasks/components/task-list/task-list-header/task-list-header.component';
+import { TaskService } from './core/services/task.service';
+import { TaskComponent } from './tasks/components/task-list/task/task.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +49,8 @@ import { TaskListHeaderComponent } from './tasks/components/task-list/task-list-
     EditBucketComponent,
     HeaderComponent,
     BucketListHeaderComponent,
-    TaskListHeaderComponent
+    TaskListHeaderComponent,
+    TaskComponent,
    ],
   imports: [
     BrowserModule,
@@ -64,7 +67,7 @@ import { TaskListHeaderComponent } from './tasks/components/task-list/task-list-
     MatFormFieldModule,
     MatCardModule
   ],
-  providers: [StatisticsService, BucketService],
+  providers: [StatisticsService, BucketService, TaskService],
   bootstrap: [AppComponent],
 
 })

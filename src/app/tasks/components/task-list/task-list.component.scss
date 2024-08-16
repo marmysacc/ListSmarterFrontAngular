@@ -1,7 +1,6 @@
 .container {
   width: 96vw;
   height: 100%;
-  //background-color: #f4d9d9;
   position: relative;
   border-radius: 40px;
   display: grid;
@@ -9,7 +8,6 @@
   gap: 20px; /* Odstępy między kolumnami */
   padding-top: 40px;
   padding-bottom: 40px;
-  //padding: 20px; /* Padding wewnętrzny kontenera */
   box-sizing: border-box; /* Uwzględnij padding w szerokości kontenera */
 }
 

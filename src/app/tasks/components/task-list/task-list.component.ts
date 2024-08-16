@@ -1,15 +1,60 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { TaskStateModel } from 'src/app/shared/statistics/models/task-state-model';
+import { TaskModel } from '../../models/task-model';
+import { TaskService } from 'src/app/core/services/task.service';
+import { HttpClient } from '@angular/common/http';
+
+export enum TaskStateEnum {
+  Todo = 1,
+  InProgress = 2,
+  Done = 3,
+  Cancelled = 4,
+}
 
 @Component({
   selector: 'app-task-list',
   templateUrl: './task-list.component.html',
   styleUrls: ['./task-list.component.scss'],
 })
+
 export class TaskListComponent implements OnInit {
   @Input() taskState: Observable<TaskStateModel[]> | undefined;
-  constructor() {}
+  @Input() bucketId: number = 0;
+  taskForBucket: TaskModel[] = [];
+  state: any
+  constructor(private http: HttpClient, private taskService: TaskService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.getTasksForBucket();
+  }
+
+  getTasksForBucket() {
+    this.taskService
+      .getTasksbyBucketId(this.bucketId)
+      .subscribe((tasks) => {
+        this.taskForBucket = tasks;
+      }
+  );
+  }
+
+  getTasksByState(taskState?: string): TaskModel[] {
+    const stateEnumValue = this.mapStateNameToEnum(taskState);
+    return this.taskForBucket.filter(task => task.state == stateEnumValue);
+  }
+
+  mapStateNameToEnum(stateName?: string): number {
+    switch(stateName) {
+      case 'To do:':
+        return TaskStateEnum.Todo;
+      case 'In progress:':
+        return TaskStateEnum.InProgress;
+      case 'Done:':
+        return TaskStateEnum.Done;
+      case 'Cancelled:':
+        return TaskStateEnum.Cancelled;
+      default:
+        return -1;
+    }
+  }
 }

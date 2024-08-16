@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { TaskStateModel } from 'src/app/shared/statistics/models/task-state-model';
+import { TaskModel } from 'src/app/tasks/models/task-model';
 
 @Component({
   selector: 'app-tasks-state-container',
@@ -8,7 +9,10 @@ import { TaskStateModel } from 'src/app/shared/statistics/models/task-state-mode
 })
 export class TasksStateContainerComponent implements OnInit {
   @Input() taskState: TaskStateModel = {} as TaskStateModel;
+  @Input() tasks: TaskModel[] = [];
   constructor() {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    console.log(this.tasks)
+  }
 }

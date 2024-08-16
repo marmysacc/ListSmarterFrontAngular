@@ -24,7 +24,7 @@ export class SinglebucketComponent implements OnInit {
   statistics: Observable<TaskStateModel[]> | undefined;
   bucket: Observable<BucketinhomeModel> | undefined;
   onDeleteBucket: EventEmitter<BucketinhomeModel> = new EventEmitter();
-  id: Number = {} as Number;
+  id: number = {} as number;
   constructor(
     private statisticsservice: StatisticsService,
     private bucketservice: BucketService,

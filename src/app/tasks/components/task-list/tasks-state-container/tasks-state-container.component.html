@@ -3,6 +3,6 @@
     <div class="task-state-name">{{ taskState.name }}</div>
   </section>
   <section class="taskList">
-    <div>placeholder</div>
+    <app-task *ngFor="let task of tasks" [task]="task"></app-task>
   </section>
 </section>

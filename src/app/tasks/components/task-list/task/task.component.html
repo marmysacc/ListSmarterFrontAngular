@@ -1,3 +1,10 @@
-<p>
-  task works!
-</p>
+<section class="container">
+  <div class="taskTitle">
+    {{ task.title }}
+  </div>
+  <div class="priority-icons">
+    <i *ngIf="task.priority === 1" class="fa-solid fa-circle-up" [ngClass]="{'icon-up': task.priority === 1}"></i>
+    <i *ngIf="task.priority === 2" class="fa-solid fa-circle-left" [ngClass]="{'icon-left': task.priority === 2}"></i>
+    <i *ngIf="task.priority === 3" class="fa-solid fa-circle-down" [ngClass]="{'icon-down': task.priority === 3}"></i>
+  </div>
+</section>

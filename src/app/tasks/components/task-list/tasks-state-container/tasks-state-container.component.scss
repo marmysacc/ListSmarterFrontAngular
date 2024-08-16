@@ -8,6 +8,7 @@
   flex-direction: column;
   align-items: center;
   box-sizing: border-box; /* Uwzględnij padding i border w szerokości i wysokości */
+  padding: 20px;
 }
 
 // .task-state-name {
@@ -29,9 +30,14 @@
   font-style: italic;
 }
 
-.taskList{
-  width: 100%;
+.taskList {
+  width: 100%; /* Zapewnia, że taskList zajmuje pełną szerokość kontenera */
   height: 100%;
   margin-top: 30px;
-  background-color: #0dc91d;
+  display: flex;
+  flex-direction: column; /* Wyświetlanie tasków jeden pod drugim */
+  gap: 10px; /* Odstęp między taskami */
+  padding: 0 10px; /* Małe odstępy od prawej i lewej strony kontenera */
+  box-sizing: border-box; /* Uwzględnia padding w szerokości */
+  align-items: stretch; /* Sprawia, że elementy wewnątrz będą się rozciągać na pełną szerokość */
 }

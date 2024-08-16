@@ -4,5 +4,6 @@
   <app-tasks-state-container
     *ngFor="let state of states"
     [taskState]="state"
+    [tasks]="getTasksByState(state.name)"
   ></app-tasks-state-container>
 </section>
