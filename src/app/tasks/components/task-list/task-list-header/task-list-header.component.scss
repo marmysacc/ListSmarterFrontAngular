@@ -34,6 +34,12 @@ button {
     cursor: pointer;
     transform: translateY(-5px) scale(1.08);
   }
+
+  &[disabled] {
+    cursor: not-allowed;
+    opacity: 0.4; // Zmniejsza przezroczystość przycisku, gdy jest nieaktywny
+    transform: none; // Usuń efekt podniesienia przycisku
+  }
 }
 
 .mat-mdc-button-base {

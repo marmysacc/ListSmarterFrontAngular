@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ChangeDetectorRef, Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { BucketModel } from 'src/app/buckets/models/bucket-model';
 
 @Component({
@@ -6,7 +6,7 @@ import { BucketModel } from 'src/app/buckets/models/bucket-model';
   templateUrl: './task-list-header.component.html',
   styleUrls: ['./task-list-header.component.scss']
 })
-export class TaskListHeaderComponent implements OnInit {
+export class TaskListHeaderComponent implements OnInit, OnChanges {
   tasksbrowser = 'Browse your tasks:';
   @Output() addTask = new EventEmitter<void>();
   @Input() bucketModel: BucketModel | undefined;
@@ -15,21 +15,34 @@ export class TaskListHeaderComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.checkTaskLimit();
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes['bucketModel']) {
+      this.showToolTip();
+    }
   }
 
   onAddBucket() {
-    this.addTask.emit();
-    this.checkTaskLimit();
+    if (!this.isButtonDisabled) {
+      this.addTask.emit();
+    }
   }
 
 
-  checkTaskLimit() {
+  showToolTip():boolean {
     if (this.bucketModel) {
       const currentTaskCount = this.bucketModel.tasks?.length || 0;
       const maxTaskCount = this.bucketModel.maxNumberOfTasks || Infinity;
-      this.showTooltip = currentTaskCount >= maxTaskCount;
+      this.showTooltip =  currentTaskCount >= maxTaskCount;
     }
+    return false;
   }
+
+  get isButtonDisabled(): boolean {
+    return this.showTooltip;
+  }
+
+
 
 }
