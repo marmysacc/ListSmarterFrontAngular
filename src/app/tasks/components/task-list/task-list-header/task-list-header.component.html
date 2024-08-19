@@ -1,4 +1,4 @@
-<section>
+<!-- <section>
   <div class="above">
     <h1>{{ tasksbrowser }}</h1>
     <div
@@ -7,9 +7,30 @@
       matTooltipPosition="above"
       matTooltipHideDelay="100"
     >
-    <button class="add-task" mat-raised-button color="primary" class="tooltip">
+    <button class="add-task" mat-raised-button class="tooltip" (click)="onAddBucket()">
       <mat-icon>  library_add  </mat-icon>   Add new Task
     </button>
+    </div>
+  </div>
+</section> -->
+<section>
+  <div class="above">
+    <h1>{{ tasksbrowser }}</h1>
+    <div
+      class="tooltip"
+      matTooltip="Maximum number of tasks has been reached!"
+      matTooltipPosition="above"
+      matTooltipHideDelay="100"
+      *ngIf="showTooltip"
+    >
+      <button class="add-task" mat-raised-button class="tooltip" (click)="onAddBucket()">
+        <mat-icon>library_add</mat-icon> Add new Task
+      </button>
+    </div>
+    <div *ngIf="!showTooltip"> <!-- Dodaj ten warunek, aby przycisk zawsze był widoczny, gdy tooltip jest ukryty -->
+      <button class="add-task" mat-raised-button (click)="onAddBucket()">
+        <mat-icon>library_add</mat-icon> Add new Task
+      </button>
     </div>
   </div>
 </section>

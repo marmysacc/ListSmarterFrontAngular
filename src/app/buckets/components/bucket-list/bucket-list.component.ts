@@ -49,7 +49,7 @@ export class BucketListComponent implements OnInit {
       {
           width: '660px'
       });
-    dialogOpen.afterClosed().subscribe((result: AddBucketModel) => {
+    dialogOpen.afterClosed().subscribe((result) => {
       if(result){
         this.bucketservice.addBucket(result).subscribe(()=>this.getBuckets());
       }

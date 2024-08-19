@@ -31,6 +31,8 @@ import { TasksStateContainerComponent } from './tasks/components/task-list/tasks
 import { TaskListHeaderComponent } from './tasks/components/task-list/task-list-header/task-list-header.component';
 import { TaskService } from './core/services/task.service';
 import { TaskComponent } from './tasks/components/task-list/task/task.component';
+import { AddTaskComponent } from './tasks/components/add-task/add-task.component';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -51,6 +53,7 @@ import { TaskComponent } from './tasks/components/task-list/task/task.component'
     BucketListHeaderComponent,
     TaskListHeaderComponent,
     TaskComponent,
+    AddTaskComponent,
    ],
   imports: [
     BrowserModule,
@@ -65,7 +68,8 @@ import { TaskComponent } from './tasks/components/task-list/task/task.component'
     FormsModule,
     MatInputModule,
     MatFormFieldModule,
-    MatCardModule
+    MatCardModule,
+    MatSelectModule,
   ],
   providers: [StatisticsService, BucketService, TaskService],
   bootstrap: [AppComponent],

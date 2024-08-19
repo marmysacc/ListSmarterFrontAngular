@@ -1,9 +1,10 @@
 <section>
-  <app-task-list-header></app-task-list-header>
-<section class="container" *ngIf="taskState | async as states">
-  <app-tasks-state-container
-    *ngFor="let state of states"
-    [taskState]="state"
-    [tasks]="getTasksByState(state.name)"
-  ></app-tasks-state-container>
+  <app-task-list-header (addTask)="onAddTask()" [bucketModel]="bucketModel"></app-task-list-header>
+  <section class="container" *ngIf="taskState | async as states">
+    <app-tasks-state-container
+      *ngFor="let state of states"
+      [taskState]="state"
+      [tasks]="getTasksByState(state.name)"
+    ></app-tasks-state-container>
+  </section>
 </section>

@@ -3,5 +3,5 @@ export interface EditBucketModel {
     name: string;
     description?: string;
     color?: string;
-    MaxNumberofTasks?: number;
+    maxNumberofTasks?: number;
   }

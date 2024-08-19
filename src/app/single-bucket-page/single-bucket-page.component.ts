@@ -55,7 +55,7 @@ export class SinglebucketComponent implements OnInit {
       width: '660px',
       data: this.bucketModel,
     });
-    dialogOpen.afterClosed().subscribe((result: EditBucketModel) => {
+    dialogOpen.afterClosed().subscribe((result) => {
       if(result){
         this.bucketservice.editBucket(result).subscribe(()=>this.getBucket());
       }

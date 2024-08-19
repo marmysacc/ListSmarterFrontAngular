@@ -1,4 +1,4 @@
-export interface AddTask{
+export interface AddTaskModel{
     title: string;
     description?: string;
     priority: number;
