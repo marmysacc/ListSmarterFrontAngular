@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnChanges } from '@angular/core';
 import { TaskStateModel } from 'src/app/shared/statistics/models/task-state-model';
 import { TaskModel } from 'src/app/tasks/models/task-model';
 
@@ -7,12 +7,21 @@ import { TaskModel } from 'src/app/tasks/models/task-model';
   templateUrl: './tasks-state-container.component.html',
   styleUrls: ['./tasks-state-container.component.scss'],
 })
-export class TasksStateContainerComponent implements OnInit {
+export class TasksStateContainerComponent implements OnChanges {
   @Input() taskState: TaskStateModel = {} as TaskStateModel;
   @Input() tasks: TaskModel[] = [];
   constructor() {}
 
-  ngOnInit() {
-    console.log(this.tasks)
+  ngOnChanges(){
+    this.sortTasks();
+  }
+
+  sortTasks() {
+    this.tasks.sort((a, b) => {
+      if (a.priority !== b.priority) {
+        return a.priority - b.priority;
+      }
+      return a.title.localeCompare(b.title);
+    });
   }
 }

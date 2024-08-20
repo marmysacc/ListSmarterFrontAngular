@@ -10,7 +10,7 @@ import { TaskStateEnum } from '../task-list/task-state.enum';
   templateUrl: './add-task.component.html',
   styleUrls: ['./add-task.component.scss']
 })
-export class AddTaskComponent implements OnInit{
+export class AddTaskComponent {
   profileForm: FormGroup;
   priorityLevels = TASK_PRIORITY_OPTIONS;
   states = TASK_STATE_OPTIONS;
@@ -23,14 +23,10 @@ export class AddTaskComponent implements OnInit{
     this.profileForm = this.fb.group({
       title: ['', Validators.required],
       description: [''],
-      priority: [TaskPriorityEnum.High, Validators.required ],
+      priority: [TaskPriorityEnum.Normal, Validators.required ],
       state: [TaskStateEnum.Todo, Validators.required],
       bucketId: [data, Validators.required],
     });
-  }
-
-  ngOnInit(): void {
-    console.log("data",  this.data);
   }
 
   closeDialog() {

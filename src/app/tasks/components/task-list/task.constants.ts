@@ -10,6 +10,6 @@ export const TASK_STATE_OPTIONS = [
 
 export const TASK_PRIORITY_OPTIONS = [
   { value: TaskPriorityEnum.High, label: 'High', icon: 'fa-solid fa-circle-up' },
-  { value: TaskPriorityEnum.Medium, label: 'Medium', icon: 'fa-solid fa-circle-left' },
+  { value: TaskPriorityEnum.Normal, label: 'Normal', icon: 'fa-solid fa-circle-left' },
   { value: TaskPriorityEnum.Low, label: 'Low', icon: 'fa-solid fa-circle-down' }
 ];
