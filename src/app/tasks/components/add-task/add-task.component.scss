@@ -84,7 +84,7 @@
 }
 
 .button:disabled {
-  background-color:#919191;
+  background-color: #919191;
 }
 
 .info {
@@ -107,4 +107,43 @@
   position: absolute;
   top: -10px;
   right: -10px;
+}
+
+.mat-select .mat-option {
+  display: flex;
+  align-items: center; /* Wyrównanie ikon i tekstu */
+}
+
+.mat-select .mat-option i {
+  margin-right: 8px; /* Odstęp między ikoną a tekstem */
+  font-size: 1.5em; /* Rozmiar ikon w formularzu */
+}
+
+.fa-circle-up {
+  color: red !important;
+}
+
+.fa-circle-left {
+  color: blue !important;
+}
+
+.fa-circle-down {
+  color: rgb(0, 255, 0) !important;
+}
+
+/* Kolory ikon dla stanu */
+.fa-hourglass-start {
+  color: rgb(189, 189, 0);
+}
+
+.fa-spinner {
+  color: #008dff;
+}
+
+.fa-check {
+  color: green;
+}
+
+.fa-ban {
+  color: red;
 }

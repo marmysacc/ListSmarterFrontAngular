@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { BucketModel } from 'src/app/buckets/models/bucket-model';
 
 @Component({
@@ -19,7 +19,7 @@ export class TaskListHeaderComponent implements OnInit, OnChanges {
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes['bucketModel']) {
-      this.showToolTip();
+      this.updateTooltip();
     }
   }
 
@@ -29,20 +29,17 @@ export class TaskListHeaderComponent implements OnInit, OnChanges {
     }
   }
 
-
-  showToolTip():boolean {
+  // Ulepszona metoda do aktualizacji stanu tooltipa
+  updateTooltip() {
     if (this.bucketModel) {
       const currentTaskCount = this.bucketModel.tasks?.length || 0;
       const maxTaskCount = this.bucketModel.maxNumberOfTasks || Infinity;
-      this.showTooltip =  currentTaskCount >= maxTaskCount;
+      this.showTooltip = currentTaskCount >= maxTaskCount;
     }
-    return false;
   }
 
+  // Getter do sprawdzania, czy przycisk jest nieaktywny
   get isButtonDisabled(): boolean {
     return this.showTooltip;
   }
-
-
-
 }

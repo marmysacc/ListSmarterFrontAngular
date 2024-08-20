@@ -8,13 +8,8 @@ import { AddTaskModel } from '../../models/add-task-model';
 import { MatDialog } from '@angular/material/dialog';
 import { AddTaskComponent } from '../add-task/add-task.component';
 import { BucketModel } from 'src/app/models/bucket-model';
+import { TaskStateEnum } from './task-state.enum';
 
-export enum TaskStateEnum {
-  Todo = 1,
-  InProgress = 2,
-  Done = 3,
-  Cancelled = 4,
-}
 
 @Component({
   selector: 'app-task-list',

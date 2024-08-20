@@ -20,20 +20,20 @@
 
     <mat-form-field class="form-field" appearance="fill">
       <mat-label class="labels" for="priority">Priority:</mat-label>
-        <mat-select formControlName="priority">
-          <mat-option *ngFor="let level of priorityLevels" [value]="level">
-            {{ level }}
-          </mat-option>
-        </mat-select>
+      <mat-select formControlName="priority">
+        <mat-option *ngFor="let level of priorityLevels" [value]="level.value">
+          <i [ngClass]="level.icon"></i> {{ level.label }}
+        </mat-option>
+      </mat-select>
     </mat-form-field>
 
     <mat-form-field class="form-field" appearance="fill">
       <mat-label class="labels" for="state">State:</mat-label>
-        <mat-select formControlName="state">
-          <mat-option *ngFor="let state of states" [value]="state">
-            {{ state }}
-          </mat-option>
-        </mat-select>
+      <mat-select formControlName="state">
+        <mat-option *ngFor="let state of states" [value]="state.value">
+          <i [ngClass]="state.icon"></i> {{ state.label }}
+        </mat-option>
+      </mat-select>
     </mat-form-field>
 
     <p class="info">Complete the form to enable button.</p>
