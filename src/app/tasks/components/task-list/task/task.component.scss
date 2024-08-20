@@ -43,6 +43,11 @@
   transform: translateY(-50%); /* Wyrównanie środka ikon do środka kontenera */
   display: flex; /* Wyrównanie ikon w poziomie */
   font-size: 30px;
+
+  &:hover {
+    cursor: pointer;
+    transform: translateY(-15px) scale(1.2);
+  }
 }
 
 .icon-up {
