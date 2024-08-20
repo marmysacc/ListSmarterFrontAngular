@@ -7,4 +7,7 @@
     <i *ngIf="task.priority === 2" class="fa-solid fa-circle-left" [ngClass]="{'icon-left': task.priority === 2}"></i>
     <i *ngIf="task.priority === 3" class="fa-solid fa-circle-down" [ngClass]="{'icon-down': task.priority === 3}"></i>
   </div>
+  <div *ngIf="task.state === 1 || task.state === 2">
+    <i class="fa-solid fa-square-caret-right" (click)="changeState()"></i>
+  </div>
 </section>

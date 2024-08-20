@@ -13,4 +13,8 @@ export class TaskComponent implements OnInit {
   ngOnInit() {
   }
 
+  changeState(){
+    this.task.state = this.task.state + 1;
+  }
+  
 }

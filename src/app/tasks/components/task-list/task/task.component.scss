@@ -36,6 +36,15 @@
   font-size: 2em; /* Rozmiar ikon */
 }
 
+.fa-square-caret-right{
+  position: absolute;
+  right: 10px; /* Odstęp od prawej krawędzi kontenera */
+  top: 50%; /* Wyrównanie w pionie */
+  transform: translateY(-50%); /* Wyrównanie środka ikon do środka kontenera */
+  display: flex; /* Wyrównanie ikon w poziomie */
+  font-size: 30px;
+}
+
 .icon-up {
   color: red; /* Kolor dla priority = 1 */
 }

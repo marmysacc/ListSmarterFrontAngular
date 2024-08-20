@@ -16,9 +16,7 @@ import { BucketModel } from '../../models/bucket-model';
   templateUrl: './edit-bucket.component.html',
   styleUrls: ['./edit-bucket.component.scss'],
 })
-export class EditBucketComponent implements OnInit {
-  //@Input() bucket: Observable<BucketinhomeModel> | undefined;
-  //@Input() bucketModel: BucketModel | undefined;
+export class EditBucketComponent {
   profileForm: FormGroup;
 
   constructor(
@@ -34,17 +32,9 @@ export class EditBucketComponent implements OnInit {
       color: [this.data.color, Validators.required],
       maxNumberOfTasks: [this.data.maxNumberOfTasks, Validators.required],
     });
-    //console.log('closeDialog',this.data);
-    //this.profileForm.patchValue()
-  }
-
-  ngOnInit(): void {
-    console.log("data",  this.data);
-    //console.log("bucket", this.bucketModel);
   }
 
   closeDialog() {
-    //console.log('closeDialog',this.data);
     this.dialogRef.close(false);
   }
 }
