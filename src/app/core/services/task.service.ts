@@ -19,6 +19,10 @@ export class TaskService {
     );
   }
 
+  getTaskById(taskId: number): Observable<TaskModel>{
+    return this.http .get<TaskModel>(`${this.url}/TaskJob/${taskId}`)
+  }
+
   addTask(addTask: AddTaskModel):Observable<TaskModel>{
     return this.http.post<TaskModel>(`${this.url}/TaskJob`, addTask);
   }
