@@ -12,8 +12,6 @@ import { TaskStateEnum } from '../task-list/task-state.enum';
 })
 export class AddTaskComponent implements OnInit{
   profileForm: FormGroup;
-  // priorityLevels: number[] = [1, 2, 3];
-  // states: number[] = [1, 2, 3, 4];
   priorityLevels = TASK_PRIORITY_OPTIONS;
   states = TASK_STATE_OPTIONS;
 
@@ -33,7 +31,6 @@ export class AddTaskComponent implements OnInit{
 
   ngOnInit(): void {
     console.log("data",  this.data);
-    //console.log("bucket", this.bucketModel);
   }
 
   closeDialog() {

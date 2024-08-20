@@ -2,7 +2,7 @@ import { TaskPriorityEnum } from "./task-priority.enum";
 import { TaskStateEnum } from "./task-state.enum";
 
 export const TASK_STATE_OPTIONS = [
-  { value: TaskStateEnum.Todo, label: 'Todo', icon: 'fa-solid fa-hourglass-start' },
+  { value: TaskStateEnum.Todo, label: 'To do', icon: 'fa-solid fa-hourglass-start' },
   { value: TaskStateEnum.InProgress, label: 'In Progress', icon: 'fa-solid fa-spinner' },
   { value: TaskStateEnum.Done, label: 'Done', icon: 'fa-solid fa-check' },
   { value: TaskStateEnum.Cancelled, label: 'Cancelled', icon: 'fa-solid fa-ban' }

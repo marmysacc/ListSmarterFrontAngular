@@ -10,11 +10,6 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
-// .mat-dialog-container {
-//   background-color: rgb(125, 209, 202);
-//   border-radius: 10px;
-//   width: 60%;
-// }
 .mat-dialog-container {
   display: block;
   background-color: rgb(1, 2, 2);
@@ -29,10 +24,6 @@ body {
   max-height: inherit;
 }
 
-// .mat-mdc-dialog-inner-container {
-//   width: 520px;
-// }
-
 .mdc-text-field--filled:not(.mdc-text-field--disabled) {
   background-color: #9fa0ff !important; /* Ustawienie tła pola input na taki sam kolor jak reszta formularza */
   color: #000000; /* Kolor tekstu wewnątrz pola input */
@@ -46,4 +37,10 @@ body {
   overflow: hidden;
   box-shadow: none;
   width: 100%;
+}
+
+.mat-mdc-select-panel {
+  background-color: #9fa0ff !important;
+  border: 2px solid #000000 !important;
+  border-radius: 20px !important;
 }
