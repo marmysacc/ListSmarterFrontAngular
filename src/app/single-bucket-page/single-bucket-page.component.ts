@@ -74,4 +74,9 @@ export class SinglebucketComponent implements OnInit {
         }
       });
   }
+
+  handleBucketAddTask(updatedBucket: BucketModel) {
+    this.bucketModel = updatedBucket;
+    this.getBucket();
+  }
 }

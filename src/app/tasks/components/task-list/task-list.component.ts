@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Observable } from 'rxjs';
 import { TaskStateModel } from 'src/app/shared/statistics/models/task-state-model';
 import { TaskModel } from '../../models/task-model';
@@ -9,7 +9,6 @@ import { AddTaskComponent } from '../add-task/add-task.component';
 import { BucketModel } from 'src/app/models/bucket-model';
 import { TaskStateEnum } from './task-state.enum';
 
-
 @Component({
   selector: 'app-task-list',
   templateUrl: './task-list.component.html',
@@ -19,12 +18,10 @@ export class TaskListComponent implements OnInit {
   @Input() taskState: Observable<TaskStateModel[]> | undefined;
   @Input() bucketId: number = 0;
   @Input() bucketModel: BucketModel | undefined;
+  @Output() bucketAddTask = new EventEmitter<BucketModel>();
   taskForBucket: TaskModel[] = [];
   state: any;
-  constructor(
-    private taskService: TaskService,
-    private dialog: MatDialog
-  ) {}
+  constructor(private taskService: TaskService, private dialog: MatDialog) {}
 
   ngOnInit() {
     this.getTasksForBucket();
@@ -63,16 +60,17 @@ export class TaskListComponent implements OnInit {
     });
     dialogOpen.afterClosed().subscribe((result: AddTaskModel) => {
       if (result) {
-        this.taskService
-          .addTask(result)
-          .subscribe(() => this.getTasksForBucket());
+        this.taskService.addTask(result).subscribe(() => {
+          this.getTasksForBucket();
+          this.bucketAddTask.emit(this.bucketModel);
+        });
       }
     });
   }
 
   handleTasksChanged(updatedTasks: TaskModel[]) {
     this.taskForBucket = updatedTasks;
+    this.bucketAddTask.emit(this.bucketModel);
     this.getTasksForBucket();
   }
-
 }
