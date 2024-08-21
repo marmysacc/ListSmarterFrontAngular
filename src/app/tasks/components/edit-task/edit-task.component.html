@@ -1,7 +1,12 @@
 <section class="container">
-  <h1 class="header">
-    Edit new Task
-  </h1>
+  <div class="header-container">
+    <button class="deletebutton"  mat-raised-button>
+      <mat-icon>delete</mat-icon>Delete
+    </button>
+    <h1 class="header">
+      Edit new Task
+    </h1>
+  </div>
   <form class="form" [formGroup]="profileForm">
     <mat-form-field class="form-field" appearance="fill">
       <mat-label class="labels" for="name">Title:</mat-label>

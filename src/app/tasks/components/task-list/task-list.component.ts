@@ -34,7 +34,6 @@ export class TaskListComponent implements OnInit {
     this.taskService.getTasksbyBucketId(this.bucketId).subscribe((tasks) => {
       this.taskForBucket = tasks;
     });
-
   }
 
   getTasksByState(taskState?: string): TaskModel[] {
