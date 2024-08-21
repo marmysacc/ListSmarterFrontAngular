@@ -30,4 +30,8 @@ export class TaskService {
   editTask(editTask: EditTaskModel): Observable<TaskModel>{
     return this.http .put<TaskModel>(`${this.url}/TaskJob`, editTask);
   }
+
+  deleteTask(task: TaskModel) {
+    return this.http .delete(`${this.url}/TaskJob/${task.id}`);
+};
 }

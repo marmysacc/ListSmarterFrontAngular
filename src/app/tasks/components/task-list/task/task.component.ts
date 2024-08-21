@@ -28,8 +28,15 @@ export class TaskComponent implements OnInit {
       width: '660px',
       data: this.task,
     });
-    dialogOpen.afterClosed().subscribe((result: TaskModel) => {
-      if (result) {
+
+    dialogOpen.afterClosed().subscribe((result: TaskModel | boolean) => {
+      console.log("Rezultat::", result);
+
+      if (typeof result === 'boolean') {
+        if (result === true) {
+          this.taskChanged.emit(this.task);
+        }
+      } else if (result) {
         this.taskService
           .editTask(result)
           .subscribe((task) => {
