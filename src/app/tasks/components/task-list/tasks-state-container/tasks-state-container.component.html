@@ -3,7 +3,7 @@
     <div class="task-state-name">{{ taskState.name }}</div>
   </section>
   <section class="taskList">
-    <app-task *ngFor="let task of tasks" [task]="task"></app-task>
+    <app-task *ngFor="let task of tasks" [task]="task" (taskChanged)="handleTaskChange($event)"></app-task>
   </section>
 </section>
 

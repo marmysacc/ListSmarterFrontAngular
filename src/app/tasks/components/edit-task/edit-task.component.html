@@ -1,3 +1,56 @@
-<p>
-  edit-task works!
-</p>
+<section class="container">
+  <h1 class="header">
+    Edit new Task
+  </h1>
+  <form class="form" [formGroup]="profileForm">
+    <mat-form-field class="form-field" appearance="fill">
+      <mat-label class="labels" for="name">Title:</mat-label>
+      <input matInput id="title" type="text" formControlName="title" required />
+    </mat-form-field>
+
+    <mat-form-field class="form-field" appearance="fill">
+      <mat-label class="labels" for="description">Description:</mat-label>
+      <textarea
+        matInput
+        id="description"
+        type="text"
+        formControlName="description"
+      ></textarea>
+    </mat-form-field>
+
+    <mat-form-field class="form-field" appearance="fill">
+      <mat-label class="labels" for="priority">Priority:</mat-label>
+      <mat-select formControlName="priority">
+        <mat-option *ngFor="let level of priorityLevels" [value]="level.value">
+          <i [ngClass]="level.icon"></i> {{ level.label }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="form-field" appearance="fill">
+      <mat-label class="labels" for="state">State:</mat-label>
+      <mat-select formControlName="state">
+        <mat-option *ngFor="let state of states" [value]="state.value">
+          <i [ngClass]="state.icon"></i> {{ state.label }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <p class="info">Complete the form to enable button.</p>
+    <div class="buttons">
+      <button mat-raised-button color="warn" class="button" type="cancel" (click)="closeDialog()">Cancel</button>
+      <button
+        mat-raised-button
+        color="primary"
+        class="button"
+        type="submit"
+        [disabled]="!profileForm.valid"
+        [mat-dialog-close]="profileForm.value"
+      >
+        Save
+      </button>
+    </div>
+  </form>
+  <p>Form Value: {{ profileForm.value | json }}</p>
+</section>
+

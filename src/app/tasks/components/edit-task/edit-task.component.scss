@@ -1,0 +1,149 @@
+.container {
+  padding: 20px;
+  border-radius: 20px;
+  border: thick solid #000000;
+  background-color: #9fa0ff;
+  width: 610px;
+  text-align: center;
+  box-shadow: 6px 6px 10px #565657;
+}
+
+.header {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-size: 30px;
+  font-weight: 900;
+  color: #0dc91d;
+  text-shadow: 5px 5px 5px #565657;
+  -webkit-text-stroke: 2px #000000;
+  font-style: italic;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form {
+  display: grid;
+  gap: 20px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.form-field {
+  width: 100%;
+  background-color: #9fa0ff;
+}
+
+.labels {
+  font-size: 20px;
+  color: #0dc91d;
+  -webkit-text-stroke: 1px #000000;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-style: italic;
+  font-weight: 800;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.button {
+  width: 45%;
+  height: 50px;
+  border-radius: 25px;
+  border: solid 2px #000000;
+  background-color: #9fa0ff;
+  color: #000000;
+  font-size: 18px;
+  font-weight: 800;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-style: italic;
+  text-shadow: 1px 1px 1px #565657;
+}
+
+.button[color="warn"] {
+  background-color: #ff0000;
+}
+
+.button[color="primary"] {
+  background-color: #48ff00;
+}
+
+.button:hover {
+  filter: brightness(85%);
+}
+
+.button:active {
+  filter: brightness(75%);
+  transform: translateY(2px);
+}
+
+.button:disabled {
+  background-color: #919191;
+}
+
+.info {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-size: 20px;
+  color: #0dc91d;
+  font-weight: 700;
+  font-style: italic;
+  -webkit-text-stroke: 1px #000000;
+  text-shadow: 1px 1px 1px #565657;
+}
+
+#close-icon {
+  cursor: pointer;
+  font-size: 36px;
+  color: #0dc91d;
+  text-shadow: 4px 4px 4px #565657;
+  -webkit-text-stroke: 1px #000000;
+  position: absolute;
+  top: -10px;
+  right: -10px;
+}
+
+.mat-select .mat-option {
+  display: flex;
+  align-items: center; /* Wyrównanie ikon i tekstu */
+}
+
+.mat-select .mat-option i {
+  margin-right: 8px; /* Odstęp między ikoną a tekstem */
+  font-size: 1.5em; /* Rozmiar ikon w formularzu */
+}
+
+.fa-circle-up {
+  color: red !important;
+}
+
+.fa-circle-left {
+  color: blue !important;
+}
+
+.fa-circle-down {
+  color: rgb(0, 255, 0) !important;
+}
+
+/* Kolory ikon dla stanu */
+.fa-hourglass-start {
+  color: yellow;
+}
+
+.fa-spinner {
+  color: #008dff;
+}
+
+.fa-check {
+  color: green;
+}
+
+.fa-ban {
+  color: red;
+}

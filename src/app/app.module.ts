@@ -33,6 +33,7 @@ import { TaskService } from './core/services/task.service';
 import { TaskComponent } from './tasks/components/task-list/task/task.component';
 import { AddTaskComponent } from './tasks/components/add-task/add-task.component';
 import { MatSelectModule } from '@angular/material/select';
+import { EditTaskComponent } from './tasks/components/edit-task/edit-task.component';
 
 @NgModule({
   declarations: [
@@ -54,6 +55,7 @@ import { MatSelectModule } from '@angular/material/select';
     TaskListHeaderComponent,
     TaskComponent,
     AddTaskComponent,
+    EditTaskComponent,
    ],
   imports: [
     BrowserModule,

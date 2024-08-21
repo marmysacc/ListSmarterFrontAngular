@@ -1,4 +1,5 @@
-import { Component, Input, OnChanges } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, Output } from '@angular/core';
+import { TaskService } from 'src/app/core/services/task.service';
 import { TaskStateModel } from 'src/app/shared/statistics/models/task-state-model';
 import { TaskModel } from 'src/app/tasks/models/task-model';
 
@@ -10,7 +11,9 @@ import { TaskModel } from 'src/app/tasks/models/task-model';
 export class TasksStateContainerComponent implements OnChanges {
   @Input() taskState: TaskStateModel = {} as TaskStateModel;
   @Input() tasks: TaskModel[] = [];
-  constructor() {}
+  @Output() tasksChanged = new EventEmitter<TaskModel[]>();
+
+  constructor(private taskService: TaskService) {}
 
   ngOnChanges(){
     this.sortTasks();
@@ -23,5 +26,14 @@ export class TasksStateContainerComponent implements OnChanges {
       }
       return a.title.localeCompare(b.title);
     });
+  }
+
+  handleTaskChange(updatedTask: TaskModel) {
+    const index = this.tasks.findIndex(task => task.id === updatedTask.id);
+    if (index !== -1) {
+      this.tasks[index] = updatedTask;
+      this.tasks = [...this.tasks];
+      this.tasksChanged.emit(this.tasks);
+    }
   }
 }

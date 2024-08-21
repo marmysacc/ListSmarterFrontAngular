@@ -5,6 +5,7 @@
       *ngFor="let state of states"
       [taskState]="state"
       [tasks]="getTasksByState(state.name)"
+      (tasksChanged)="handleTasksChanged($event)"
     ></app-tasks-state-container>
   </section>
 </section>

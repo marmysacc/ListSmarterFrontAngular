@@ -3,7 +3,6 @@ import { Observable } from 'rxjs';
 import { TaskStateModel } from 'src/app/shared/statistics/models/task-state-model';
 import { TaskModel } from '../../models/task-model';
 import { TaskService } from 'src/app/core/services/task.service';
-import { HttpClient } from '@angular/common/http';
 import { AddTaskModel } from '../../models/add-task-model';
 import { MatDialog } from '@angular/material/dialog';
 import { AddTaskComponent } from '../add-task/add-task.component';
@@ -23,7 +22,6 @@ export class TaskListComponent implements OnInit {
   taskForBucket: TaskModel[] = [];
   state: any;
   constructor(
-    private http: HttpClient,
     private taskService: TaskService,
     private dialog: MatDialog
   ) {}
@@ -72,4 +70,10 @@ export class TaskListComponent implements OnInit {
       }
     });
   }
+
+  handleTasksChanged(updatedTasks: TaskModel[]) {
+    this.taskForBucket = updatedTasks;
+    this.getTasksForBucket();
+  }
+
 }
