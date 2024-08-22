@@ -7,6 +7,10 @@
   box-sizing: border-box; /* Uwzględnij padding i border w szerokości */
   position: relative; /* Pozycjonowanie absolutne dla ikony */
   overflow: hidden; /* Ukrywa zawartość wychodzącą poza kontener */
+  &:hover {
+    cursor: pointer;
+    transform: translateY(-5px) scale(1.05);
+  }
 }
 
 .taskTitle {
