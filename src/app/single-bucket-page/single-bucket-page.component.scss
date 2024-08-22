@@ -23,18 +23,15 @@
   right: 20px;
   display: flex;
   justify-content: space-between;
-  width: calc(
-    100% - 40px
-  );
 }
 
-.bottom {
+.left-buttons {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  background-color: inherit;
-  //margin-top: 80px;
+}
+
+.right-buttons {
+  display: flex;
+  gap: 10px; // Odstęp między przyciskami Edit i Delete
 }
 
 button {
@@ -61,4 +58,20 @@ button {
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   font-style: italic;
   text-shadow: 4px 4px 4px #565657;
+}
+
+.homebutton {
+  display: flex;
+  width: 80px;
+  height: 60px;
+  justify-content: center;
+  align-items: center;
+}
+
+.homebutton mat-icon {
+  height: 30px;
+  width: 30px;
+  font-size: 30px; // Możesz dostosować rozmiar ikon, jeśli zajdzie taka potrzeba
+  margin-right: 0; // Własny margines między ikonami
+  margin-left: 0; // Nadpisanie domyślnego przesunięcia w lewo
 }

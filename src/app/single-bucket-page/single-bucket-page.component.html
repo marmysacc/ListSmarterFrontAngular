@@ -1,19 +1,50 @@
-<section class="container" [ngStyle]="{ 'background-color': bucketModel?.color}">
+<section
+  class="container"
+  [ngStyle]="{ 'background-color': bucketModel?.color }"
+>
   <div class="header">
     <app-bucket-header [bucketModel]="bucketModel"></app-bucket-header>
   </div>
   <app-statistics-list [statistics]="statistics"></app-statistics-list>
 
   <div class="buttons">
-    <button class="editbutton" [ngStyle]="{ 'background-color': bucketModel?.color }" mat-raised-button (click)="onEditBucket()">
-      <mat-icon>edit</mat-icon>Edit
-    </button>
-    <button class="deletebutton" [ngStyle]="{ 'background-color': bucketModel?.color }" mat-raised-button (click)="onDelete()">
-      <mat-icon>delete</mat-icon>Delete
-    </button>
+    <div class="left-buttons">
+      <button
+        class="homebutton"
+        [routerLink]="['']"
+        [ngStyle]="{ 'background-color': bucketModel?.color }"
+        mat-raised-button
+      >
+        <!-- <mat-icon>arrow_back</mat-icon> -->
+        <mat-icon>home</mat-icon>
+      </button>
+    </div>
+    <div class="right-buttons">
+      <button
+        class="editbutton"
+        [ngStyle]="{ 'background-color': bucketModel?.color }"
+        mat-raised-button
+        (click)="onEditBucket()"
+      >
+        <mat-icon>edit</mat-icon>Edit
+      </button>
+      <button
+        class="deletebutton"
+        [ngStyle]="{ 'background-color': bucketModel?.color }"
+        mat-raised-button
+        (click)="onDelete()"
+      >
+        <mat-icon>delete</mat-icon>Delete
+      </button>
+    </div>
   </div>
 
   <div class="bottom">
-    <app-task-list [taskState]="statistics" [bucketId]="id" [bucketModel]="bucketModel" (bucketAddTask)="handleBucketAddTask($event)"></app-task-list>
+    <app-task-list
+      [taskState]="statistics"
+      [bucketId]="id"
+      [bucketModel]="bucketModel"
+      (bucketAddTask)="handleBucketAddTask($event)"
+    ></app-task-list>
   </div>
 </section>
