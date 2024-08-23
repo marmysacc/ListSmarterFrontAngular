@@ -1,10 +1,17 @@
-import { Component, Input, AfterViewInit, ElementRef, ViewChild } from '@angular/core';
+import {
+  Component,
+  Input,
+  AfterViewInit,
+  ElementRef,
+  ViewChild,
+} from '@angular/core';
 import { Observable } from 'rxjs';
 import { TaskStateModel } from '../../models/task-state-model';
-import { Chart, ChartData, ChartOptions, ArcElement, PieController, Tooltip, Legend } from 'chart.js';
+import * as am4core from '@amcharts/amcharts4/core';
+import * as am4charts from '@amcharts/amcharts4/charts';
+import am4themes_animated from '@amcharts/amcharts4/themes/animated';
 
-// Rejestracja kontrolerów i elementów
-Chart.register(PieController, ArcElement, Tooltip, Legend);
+am4core.useTheme(am4themes_animated);
 
 @Component({
   selector: 'app-statistics-chart',
@@ -13,39 +20,67 @@ Chart.register(PieController, ArcElement, Tooltip, Legend);
 })
 export class StatisticsChartComponent implements AfterViewInit {
   @Input() statistics: Observable<TaskStateModel[]> | undefined;
-  @ViewChild('pieChart') pieChartRef!: ElementRef<HTMLCanvasElement>;
-  private pieChart!: Chart<'pie'>;
+  @ViewChild('chartDiv') chartDiv!: ElementRef<HTMLDivElement>;
+  private chart!: am4charts.PieChart3D;
 
-  constructor() { }
+  constructor() {}
 
   ngAfterViewInit(): void {
     if (this.statistics) {
       this.statistics.subscribe((stats) => {
-        const labels = stats.map((stat) => stat.name).filter((label): label is string => label !== undefined);
-        const data = stats.map((stat) => stat.amount || 0);
-        const backgroundColor = stats.map((stat) => stat.color || 'gray');
+        const chart = am4core.create(
+          this.chartDiv.nativeElement,
+          am4charts.PieChart3D
+        );
+        chart.hiddenState.properties.opacity = 0; // this creates initial fade-in
 
-        this.createPieChart(labels, data, backgroundColor);
+        chart.data = stats.map((stat) => ({
+          category: stat.name,
+          value: stat.amount || 0,
+          color: stat.color || 'gray',
+        }));
+
+        const series = chart.series.push(new am4charts.PieSeries3D());
+        series.dataFields.value = 'value';
+        series.dataFields.category = 'category';
+        series.slices.template.propertyFields.fill = 'color';
+        series.slices.template.propertyFields.stroke = 'color';
+
+        // Add black borders between slices
+        series.slices.template.strokeWidth = 2;
+        series.slices.template.strokeOpacity = 1;
+
+        // Adjust the 3D depth and angle for more tilt
+        chart.depth = 40; // Increase depth for more 3D effect
+        chart.angle = 30; // Increase angle for more tilt
+
+        // Add shadow to each slice
+        let shadow = series.slices.template.filters.push(
+          new am4core.DropShadowFilter()
+        );
+        shadow.opacity = 0.5; // Set shadow opacity
+        shadow.blur = 10; // Set blur radius
+        shadow.dx = 5; // Horizontal shadow offset
+        shadow.dy = 5; // Vertical shadow offset
+
+        // Custom Label styling
+        let label = series.labels.template;
+        label.fontFamily =
+          "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif";
+        label.fontSize = 30;
+        label.fontWeight = '900';
+        label.fill = am4core.color('#0dc91d');
+        label.stroke = am4core.color('#000000');
+        label.strokeWidth = 2;
+
+        this.chart = chart;
       });
     }
   }
 
-  private createPieChart(labels: string[], data: number[], backgroundColor: string[]): void {
-    const ctx = this.pieChartRef.nativeElement.getContext('2d');
-    if (ctx) {
-      this.pieChart = new Chart(ctx, {
-        type: 'pie',
-        data: {
-          labels: labels,
-          datasets: [{
-            data: data,
-            backgroundColor: backgroundColor,
-          }]
-        },
-        options: {
-          responsive: true,
-        } as ChartOptions<'pie'>
-      });
+  ngOnDestroy(): void {
+    if (this.chart) {
+      this.chart.dispose();
     }
   }
 }

@@ -1,17 +1,16 @@
 <section class="container">
   <app-header [header]="header"></app-header>
 
-  <!-- Przycisk przełączania widoków -->
-  <button (click)="toggleView()">Toggle View</button>
-
-  <!-- Wyświetlanie listy lub wykresu w zależności od przełącznika -->
-  <ng-container *ngIf="!showChart; else chartView">
+  <ng-container>
+    <mat-slide-toggle class="custom-slide-toggle" (change)="toggleView()"
+      >Pie chart</mat-slide-toggle
+    >
     <app-statistics-list [statistics]="statistics"></app-statistics-list>
+    <app-statistics-chart
+      [statistics]="statistics"
+      *ngIf="showChart"
+    ></app-statistics-chart>
   </ng-container>
-
-  <ng-template #chartView>
-    <app-statistics-chart [statistics]="statistics"></app-statistics-chart>
-  </ng-template>
 
   <app-bucket-list></app-bucket-list>
 </section>

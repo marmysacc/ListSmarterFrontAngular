@@ -11,7 +11,7 @@ import { TaskStateModel } from '../shared/statistics/models/task-state-model';
 export class HomeComponent implements OnInit {
   header = 'Welcome in ListSmarter';
   statistics: Observable<TaskStateModel[]> | undefined;
-  showChart = false; // Dodajemy przełącznik widoku
+  showChart = false;
 
   constructor(private statisticsservice: StatisticsService) {}
 

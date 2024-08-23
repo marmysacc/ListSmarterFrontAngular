@@ -44,3 +44,46 @@ body {
   border: 2px solid #000000 !important;
   border-radius: 20px !important;
 }
+
+.mat-mdc-slide-toggle .mat-internal-form-field {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif !important;
+  font-size: 30px !important;
+  font-weight: 900 !important;
+  text-shadow: 5px 5px 5px #565657 !important;
+  color: #0dc91d !important;
+  -webkit-text-stroke: 2px #000000 !important;
+  font-style: italic !important;
+}
+
+.mdc-switch {
+  width: 50px !important;
+}
+
+.mdc-switch__track {
+  height: 25px !important;
+  border-radius: 25px !important;
+  border-style: solid !important;
+  border-color: #000000 !important;
+}
+
+.mdc-switch__handle-track {
+
+
+     left: 10% !important;
+   width: calc(80% - var(--mdc-switch-handle-width)) !important;
+}
+
+html .mat-mdc-slide-toggle.mat-accent {
+  --mdc-switch-selected-focus-state-layer-color: #1dac00 !important;
+  --mdc-switch-selected-handle-color: #1dac00 !important;
+  --mdc-switch-selected-hover-state-layer-color: #1dac00 !important;
+  --mdc-switch-selected-pressed-state-layer-color: #1dac00 !important;
+  --mdc-switch-selected-focus-handle-color: #00857e !important;
+  --mdc-switch-selected-hover-handle-color: #00857e !important;
+  --mdc-switch-selected-pressed-handle-color: #00857e !important;
+  --mdc-switch-selected-focus-track-color: #84f784 !important;
+  --mdc-switch-selected-hover-track-color: #84f784 !important;
+  --mdc-switch-selected-pressed-track-color: #84f784 !important;
+  --mdc-switch-selected-track-color: #84f784 !important;
+}
