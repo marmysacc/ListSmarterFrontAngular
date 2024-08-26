@@ -5,7 +5,19 @@
   <div class="header">
     <app-bucket-header [bucketModel]="bucketModel"></app-bucket-header>
   </div>
-  <app-statistics-list [statistics]="statistics"></app-statistics-list>
+  <div>
+    <mat-slide-toggle class="custom-slide-toggle" (change)="toggleView()"
+    >Pie chart</mat-slide-toggle
+  >
+  </div>
+  <ng-container>
+    <app-statistics-list [statistics]="statistics"></app-statistics-list>
+    <app-statistics-chart
+        [statistics]="statistics"
+        *ngIf="showChart"
+      ></app-statistics-chart>
+  </ng-container>
+
 
   <div class="buttons">
     <div class="left-buttons">
@@ -15,7 +27,6 @@
         [ngStyle]="{ 'background-color': bucketModel?.color }"
         mat-raised-button
       >
-        <!-- <mat-icon>arrow_back</mat-icon> -->
         <mat-icon>home</mat-icon>
       </button>
     </div>

@@ -25,6 +25,7 @@ export class SinglebucketComponent implements OnInit {
   bucket: Observable<BucketinhomeModel> | undefined;
   onDeleteBucket: EventEmitter<BucketinhomeModel> = new EventEmitter();
   id: number = {} as number;
+  showChart = false;
   constructor(
     private statisticsservice: StatisticsService,
     private bucketservice: BucketService,
@@ -78,5 +79,9 @@ export class SinglebucketComponent implements OnInit {
   handleBucketAddTask(updatedBucket: BucketModel) {
     this.bucketModel = updatedBucket;
     this.getBucket();
+  }
+
+  toggleView() {
+    this.showChart = !this.showChart;
   }
 }
