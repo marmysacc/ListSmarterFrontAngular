@@ -34,3 +34,11 @@
   box-sizing: border-box; /* Uwzględnia padding w szerokości */
   align-items: stretch; /* Sprawia, że elementy wewnątrz będą się rozciągać na pełną szerokość */
 }
+
+// .cdk-drag-preview {
+//   transform: none !important; /* Zapobiega pomniejszaniu podczas przeciągania */
+// }
+
+.cdk-drag-placeholder {
+  display: none !important; /* Ukrywa placeholder */
+}

@@ -36,6 +36,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { EditTaskComponent } from './tasks/components/edit-task/edit-task.component';
 import { StatisticsChartComponent } from './shared/statistics/components/statistics-chart/statistics-chart.component';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 @NgModule({
   declarations: [
@@ -76,6 +77,7 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
     MatCardModule,
     MatSelectModule,
     MatSlideToggleModule,
+    DragDropModule,
   ],
   providers: [StatisticsService, BucketService, TaskService,],
   bootstrap: [AppComponent],
