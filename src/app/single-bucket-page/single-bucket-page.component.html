@@ -6,7 +6,7 @@
     <app-bucket-header [bucketModel]="bucketModel"></app-bucket-header>
   </div>
   <div>
-    <mat-slide-toggle class="custom-slide-toggle" (change)="toggleView()"
+    <mat-slide-toggle class="custom-slide-toggle" [(ngModel)]="toggleState" (change)="toggleView($event)"
     >Pie chart</mat-slide-toggle
   >
   </div>
