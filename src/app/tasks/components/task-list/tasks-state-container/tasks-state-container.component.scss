@@ -35,10 +35,13 @@
   align-items: stretch; /* Sprawia, że elementy wewnątrz będą się rozciągać na pełną szerokość */
 }
 
-// .cdk-drag-preview {
-//   transform: none !important; /* Zapobiega pomniejszaniu podczas przeciągania */
-// }
+.cdk-drag {
+  transition: none !important; /* Wyłącza wszelkie przejścia */
+  display: block !important;
+}
 
 .cdk-drag-placeholder {
-  display: none !important; /* Ukrywa placeholder */
+  display: block !important; /* Upewnia się, że placeholder jest widoczny */
+  width: 100%;
+  height: 100%;
 }

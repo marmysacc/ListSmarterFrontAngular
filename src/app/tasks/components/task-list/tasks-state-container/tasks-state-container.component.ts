@@ -58,46 +58,20 @@ export class TasksStateContainerComponent implements OnInit, OnChanges {
     }
   }
 
-  // drop(event: CdkDragDrop<TaskModel[]>) {
-  //   console.log('Test', event);
-
-  //   if (event.previousContainer === event.container) {
-  //     moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
-  //   } else {
-  //     const movedTask = event.previousContainer.data[event.previousIndex];
-  //     const newState = this.mapStateNameToEnum(this.taskState.name); // Mapa nowego stanu
-
-  //     if (newState !== -1) {
-  //       movedTask.state = newState; // Ustaw nowy stan
-
-  //       this.taskService.editTask(movedTask).subscribe((updatedTask) => {
-  //         console.log('Zadanie zaktualizowane:', updatedTask);
-  //         transferArrayItem(
-  //           event.previousContainer.data,
-  //           event.container.data,
-  //           event.previousIndex,
-  //           event.currentIndex
-  //         );
-  //         this.handleTaskChange(updatedTask);
-  //       });
-  //     }
-  //   }
-  // }
-
   drop(event: CdkDragDrop<TaskModel[]>) {
+    console.log('Test', event);
+
     if (event.previousContainer === event.container) {
-      // Jeśli przeciągasz w tym samym kontenerze, po prostu zmień kolejność
-      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+      //moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
     } else {
-      // Usuń element z poprzedniego kontenera natychmiast po rozpoczęciu przeciągania
-      const movedTask = event.previousContainer.data.splice(event.previousIndex, 1)[0];
-      const newState = this.mapStateNameToEnum(this.taskState.name);
+      const movedTask = event.previousContainer.data[event.previousIndex];
+      const newState = this.mapStateNameToEnum(this.taskState.name); // Mapa nowego stanu
 
       if (newState !== -1) {
-        movedTask.state = newState;
+        movedTask.state = newState; // Ustaw nowy stan
 
-        // Zaktualizuj zadanie na serwerze i przenieś do nowego kontenera
         this.taskService.editTask(movedTask).subscribe((updatedTask) => {
+          console.log('Zadanie zaktualizowane:', updatedTask);
           transferArrayItem(
             event.previousContainer.data,
             event.container.data,
@@ -110,4 +84,29 @@ export class TasksStateContainerComponent implements OnInit, OnChanges {
     }
   }
 
+  // drop(event: CdkDragDrop<TaskModel[]>) {
+  //   if (event.previousContainer === event.container) {
+  //     // Jeśli przeciągasz w tym samym kontenerze, po prostu zmień kolejność
+  //     //moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+  //   } else {
+  //     // Usuń element z poprzedniego kontenera natychmiast po rozpoczęciu przeciągania
+  //     const movedTask = event.previousContainer.data.splice(event.previousIndex, 1)[0];
+  //     const newState = this.mapStateNameToEnum(this.taskState.name);
+
+  //     if (newState !== -1) {
+  //       movedTask.state = newState;
+
+  //       // Zaktualizuj zadanie na serwerze i przenieś do nowego kontenera
+  //       this.taskService.editTask(movedTask).subscribe((updatedTask) => {
+  //         transferArrayItem(
+  //           event.previousContainer.data,
+  //           event.container.data,
+  //           event.previousIndex,
+  //           event.currentIndex
+  //         );
+  //         this.handleTaskChange(updatedTask);
+  //       });
+  //     }
+  //   }
+  // }
 }

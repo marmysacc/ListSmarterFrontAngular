@@ -84,10 +84,10 @@ export class SinglebucketComponent implements OnInit {
     this.showChart = false;
     this.toggleState = this.showChart;
     this.getBucket();
-    setTimeout(() => {
-      this.showChart = true;
-      this.toggleState = this.showChart;
-    }, 0);
+    // setTimeout(() => {
+    //   this.showChart = true;
+    //   this.toggleState = this.showChart;
+    // }, 0);
   }
 
   toggleView(event: MatSlideToggleChange) {
