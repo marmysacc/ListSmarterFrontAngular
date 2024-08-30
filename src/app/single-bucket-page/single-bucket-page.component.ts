@@ -82,8 +82,12 @@ export class SinglebucketComponent implements OnInit {
   handleBucketAddTask(updatedBucket: BucketModel) {
     this.bucketModel = updatedBucket;
     this.showChart = false;
-    this.toggleState = this.showChart;  // Aktualizujemy stan przełącznika
+    this.toggleState = this.showChart;
     this.getBucket();
+    setTimeout(() => {
+      this.showChart = true;
+      this.toggleState = this.showChart;
+    }, 0);
   }
 
   toggleView(event: MatSlideToggleChange) {

@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { TaskModel } from 'src/app/tasks/models/task-model';
 import { TaskService } from '../../../../core/services/task.service';
 import { EditTaskComponent } from '../../edit-task/edit-task.component';
@@ -9,17 +9,19 @@ import { MatDialog } from '@angular/material/dialog';
   templateUrl: './task.component.html',
   styleUrls: ['./task.component.scss'],
 })
-export class TaskComponent implements OnInit {
+export class TaskComponent {
   @Input() task: TaskModel = {} as TaskModel;
   @Output() taskChanged = new EventEmitter<TaskModel>();
   constructor(private taskService: TaskService, private dialog: MatDialog) {}
 
-  ngOnInit() {}
+  changeState(event: MouseEvent) {
+    event.stopPropagation();
+    const updatedTask = Object.assign({}, this.task, { state: this.task.state + 1 });
 
-  changeState() {
-    this.task.state = this.task.state + 1;
-    this.taskService.editTask(this.task).subscribe((task) => {
+    this.taskService.editTask(updatedTask).subscribe((task) => {
+      console.log("przed eventem");
       this.taskChanged.emit(task);
+      console.log("po evencie");
     });
   }
 
