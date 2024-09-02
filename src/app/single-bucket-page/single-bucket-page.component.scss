@@ -1,15 +1,15 @@
 .container {
-  width: 100%;
-  height: 100%;
+  //width: 100%;
+  //height: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  //align-items: center;
   opacity: 0.9;
   position: relative;
 }
 
 .header {
-  width: 100%;
+  //width: 100%;
   display: flex;
   justify-content: center;
   text-align: center;
@@ -74,4 +74,9 @@ button {
   font-size: 30px; // Możesz dostosować rozmiar ikon, jeśli zajdzie taka potrzeba
   margin-right: 0; // Własny margines między ikonami
   margin-left: 0; // Nadpisanie domyślnego przesunięcia w lewo
+}
+
+.mat-mdc-slide-toggle {
+  margin-bottom: 10px;
+  margin-left: 2%;
 }

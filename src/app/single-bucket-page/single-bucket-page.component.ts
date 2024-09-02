@@ -11,6 +11,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { EditBucketModel } from '../buckets/models/edit-bucket-model';
 import { BucketModel } from '../models/bucket-model';
 import { statisticModel } from '../models/statistic-model';
+import { MatSlideToggleChange } from '@angular/material/slide-toggle';
 
 @Component({
   selector: 'app-single-bucket-page',
@@ -25,6 +26,8 @@ export class SinglebucketComponent implements OnInit {
   bucket: Observable<BucketinhomeModel> | undefined;
   onDeleteBucket: EventEmitter<BucketinhomeModel> = new EventEmitter();
   id: number = {} as number;
+  showChart = false;
+  toggleState: boolean = false;
   constructor(
     private statisticsservice: StatisticsService,
     private bucketservice: BucketService,
@@ -37,6 +40,7 @@ export class SinglebucketComponent implements OnInit {
 
   ngOnInit(): void {
     this.getBucket();
+    this.toggleState = this.showChart;
   }
 
   getBucket(){
@@ -77,6 +81,17 @@ export class SinglebucketComponent implements OnInit {
 
   handleBucketAddTask(updatedBucket: BucketModel) {
     this.bucketModel = updatedBucket;
+    this.showChart = false;
+    this.toggleState = this.showChart;
     this.getBucket();
+    // setTimeout(() => {
+    //   this.showChart = true;
+    //   this.toggleState = this.showChart;
+    // }, 0);
+  }
+
+  toggleView(event: MatSlideToggleChange) {
+    this.showChart = event.checked;
+    this.toggleState = this.showChart;
   }
 }

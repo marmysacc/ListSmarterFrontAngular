@@ -10,10 +10,16 @@ import { TaskStateModel } from '../shared/statistics/models/task-state-model';
 })
 export class HomeComponent implements OnInit {
   header = 'Welcome in ListSmarter';
+  statistics: Observable<TaskStateModel[]> | undefined;
+  showChart = false;
+
   constructor(private statisticsservice: StatisticsService) {}
 
-  statistics: Observable<TaskStateModel[]> | undefined;
   ngOnInit(): void {
     this.statistics = this.statisticsservice.getStatistics();
+  }
+
+  toggleView() {
+    this.showChart = !this.showChart;
   }
 }

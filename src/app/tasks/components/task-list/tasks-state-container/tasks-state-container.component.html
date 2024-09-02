@@ -1,9 +1,21 @@
-<section class="container" [ngStyle]="{ 'background-color': taskState.color }">
-  <section class="header">
-    <div class="task-state-name">{{ taskState.name }}</div>
-  </section>
-  <section class="taskList">
-    <app-task *ngFor="let task of tasks" [task]="task" (taskChanged)="handleTaskChange($event)"></app-task>
-  </section>
+ <section
+ class="container"
+ [ngStyle]="{ 'background-color': taskState.color }"
+ cdkDropList
+ [cdkDropListConnectedTo]="connectedDropLists"
+ [cdkDropListData]="tasks"
+ [id]="taskState.name ?? 'default-id'"
+ (cdkDropListDropped)="drop($event)"
+>
+ <section class="header">
+   <div class="task-state-name">{{ taskState.name }}</div>
+ </section>
+ <section class="taskList">
+   <app-task
+     *ngFor="let task of tasks"
+     [task]="task"
+     (taskChanged)="handleTaskChange($event)"
+     cdkDrag
+   ></app-task>
+ </section>
 </section>
-

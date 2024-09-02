@@ -1,5 +1,16 @@
 <section class="container">
   <app-header [header]="header"></app-header>
-  <app-statistics-list [statistics]="statistics"></app-statistics-list>
-  <app-bucket-list> </app-bucket-list>
+
+  <ng-container>
+    <mat-slide-toggle class="custom-slide-toggle" (change)="toggleView()"
+      >Pie chart</mat-slide-toggle
+    >
+    <app-statistics-list [statistics]="statistics"></app-statistics-list>
+    <app-statistics-chart
+      [statistics]="statistics"
+      *ngIf="showChart"
+    ></app-statistics-chart>
+  </ng-container>
+
+  <app-bucket-list></app-bucket-list>
 </section>

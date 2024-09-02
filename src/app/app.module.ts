@@ -34,6 +34,9 @@ import { TaskComponent } from './tasks/components/task-list/task/task.component'
 import { AddTaskComponent } from './tasks/components/add-task/add-task.component';
 import { MatSelectModule } from '@angular/material/select';
 import { EditTaskComponent } from './tasks/components/edit-task/edit-task.component';
+import { StatisticsChartComponent } from './shared/statistics/components/statistics-chart/statistics-chart.component';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 @NgModule({
   declarations: [
@@ -56,6 +59,7 @@ import { EditTaskComponent } from './tasks/components/edit-task/edit-task.compon
     TaskComponent,
     AddTaskComponent,
     EditTaskComponent,
+    StatisticsChartComponent,
    ],
   imports: [
     BrowserModule,
@@ -72,8 +76,10 @@ import { EditTaskComponent } from './tasks/components/edit-task/edit-task.compon
     MatFormFieldModule,
     MatCardModule,
     MatSelectModule,
+    MatSlideToggleModule,
+    DragDropModule,
   ],
-  providers: [StatisticsService, BucketService, TaskService],
+  providers: [StatisticsService, BucketService, TaskService,],
   bootstrap: [AppComponent],
 
 })

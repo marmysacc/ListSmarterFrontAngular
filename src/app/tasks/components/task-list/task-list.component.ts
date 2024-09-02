@@ -21,10 +21,14 @@ export class TaskListComponent implements OnInit {
   @Output() bucketAddTask = new EventEmitter<BucketModel>();
   taskForBucket: TaskModel[] = [];
   state: any;
+
+  connectedDropLists: string[] = []; // Lista połączonych kontenerów
+
   constructor(private taskService: TaskService, private dialog: MatDialog) {}
 
   ngOnInit() {
     this.getTasksForBucket();
+    this.initializeConnectedLists();
   }
 
   getTasksForBucket() {
@@ -51,6 +55,12 @@ export class TaskListComponent implements OnInit {
       default:
         return -1;
     }
+  }
+
+  initializeConnectedLists() {
+    this.taskState?.subscribe(states => {
+      this.connectedDropLists = states.map(state => state.name || '');
+    });
   }
 
   onAddTask() {

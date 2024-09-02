@@ -29,6 +29,7 @@ button {
   height: 60px;
   border-radius: 60px;
   border-width: medium;
+  margin-right: 30px;
 
   &:hover {
     cursor: pointer;
@@ -40,6 +41,7 @@ button {
     opacity: 0.5; // Zmniejsza przezroczystość przycisku, gdy jest nieaktywny
     transform: none; // Usuń efekt podniesienia przycisku
     background-color:#919191;
+    margin-right: 0px;
   }
 }
 
