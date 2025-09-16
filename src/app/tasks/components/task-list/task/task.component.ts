@@ -3,6 +3,7 @@ import { TaskModel } from 'src/app/tasks/models/task-model';
 import { TaskService } from '../../../../core/services/task.service';
 import { EditTaskComponent } from '../../edit-task/edit-task.component';
 import { MatDialog } from '@angular/material/dialog';
+import { tap } from 'rxjs';
 
 @Component({
   selector: 'app-task',
@@ -18,7 +19,7 @@ export class TaskComponent {
     event.stopPropagation();
     const updatedTask = Object.assign({}, this.task, { state: this.task.state + 1 });
 
-    this.taskService.editTask(updatedTask).subscribe((task) => {
+    this.taskService.editTask(updatedTask).pipe(tap((x) =>(console.log("test", x)))).subscribe((task) => {
       console.log("przed eventem");
       this.taskChanged.emit(task);
       console.log("po evencie");
